@@ -1,5 +1,8 @@
 # nwHacks2018
 
+Hack idea:
+Collect emotions when user is reading and utilizing the data collected.
+
 - happy
 	- corners of mouth are raised
 - sad
