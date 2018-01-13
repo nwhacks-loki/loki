@@ -12,6 +12,11 @@
 		38424715200AC50B00BE2AEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3842470F200AC50B00BE2AEF /* LaunchScreen.storyboard */; };
 		38424716200AC50B00BE2AEF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38424711200AC50B00BE2AEF /* Info.plist */; };
 		38424717200AC50B00BE2AEF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38424712200AC50B00BE2AEF /* ViewController.swift */; };
+		38424720200AC5EA00BE2AEF /* CheckmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3842471D200AC5EA00BE2AEF /* CheckmarkView.swift */; };
+		38424721200AC5EA00BE2AEF /* SmileToUnlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3842471E200AC5EA00BE2AEF /* SmileToUnlock.swift */; };
+		38424722200AC5EA00BE2AEF /* SmileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3842471F200AC5EA00BE2AEF /* SmileView.swift */; };
+		38424724200AC61300BE2AEF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38424723200AC61300BE2AEF /* Main.storyboard */; };
+		38424727200AC6A100BE2AEF /* Emotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38424726200AC6A100BE2AEF /* Emotion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +26,11 @@
 		38424710200AC50B00BE2AEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		38424711200AC50B00BE2AEF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38424712200AC50B00BE2AEF /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3842471D200AC5EA00BE2AEF /* CheckmarkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckmarkView.swift; sourceTree = "<group>"; };
+		3842471E200AC5EA00BE2AEF /* SmileToUnlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmileToUnlock.swift; sourceTree = "<group>"; };
+		3842471F200AC5EA00BE2AEF /* SmileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmileView.swift; sourceTree = "<group>"; };
+		38424723200AC61300BE2AEF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		38424726200AC6A100BE2AEF /* Emotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emotion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +65,7 @@
 			children = (
 				3842470D200AC50B00BE2AEF /* AppDelegate.swift */,
 				3842470E200AC50B00BE2AEF /* Assets.xcassets */,
+				38424725200AC68800BE2AEF /* SmileToUnlock */,
 				3842471B200AC52900BE2AEF /* Controllers */,
 				3842471A200AC52500BE2AEF /* Views */,
 				38424719200AC52100BE2AEF /* Models */,
@@ -76,6 +87,7 @@
 		38424719200AC52100BE2AEF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				38424726200AC6A100BE2AEF /* Emotion.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -100,6 +112,17 @@
 			children = (
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		38424725200AC68800BE2AEF /* SmileToUnlock */ = {
+			isa = PBXGroup;
+			children = (
+				3842471D200AC5EA00BE2AEF /* CheckmarkView.swift */,
+				3842471E200AC5EA00BE2AEF /* SmileToUnlock.swift */,
+				3842471F200AC5EA00BE2AEF /* SmileView.swift */,
+				38424723200AC61300BE2AEF /* Main.storyboard */,
+			);
+			path = SmileToUnlock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +187,7 @@
 				38424714200AC50B00BE2AEF /* Assets.xcassets in Resources */,
 				38424715200AC50B00BE2AEF /* LaunchScreen.storyboard in Resources */,
 				38424716200AC50B00BE2AEF /* Info.plist in Resources */,
+				38424724200AC61300BE2AEF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,7 +199,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				38424717200AC50B00BE2AEF /* ViewController.swift in Sources */,
+				38424720200AC5EA00BE2AEF /* CheckmarkView.swift in Sources */,
 				38424713200AC50B00BE2AEF /* AppDelegate.swift in Sources */,
+				38424722200AC5EA00BE2AEF /* SmileView.swift in Sources */,
+				38424721200AC5EA00BE2AEF /* SmileToUnlock.swift in Sources */,
+				38424727200AC6A100BE2AEF /* Emotion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,7 +334,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JH5XJ55XGZ;
-				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Source/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.nathantannar.nwHacks2018;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -321,7 +349,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JH5XJ55XGZ;
-				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Source/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.nathantannar.nwHacks2018;
 				PRODUCT_NAME = "$(TARGET_NAME)";
