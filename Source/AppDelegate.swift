@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 self.window?.rootViewController = vc
             }
             window?.rootViewController = vc
+        }
                 
         return true
     }
