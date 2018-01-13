@@ -190,30 +190,8 @@ public class SmileToUnlock: UIViewController {
 extension SmileToUnlock: ARSCNViewDelegate {
     
     public func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
-        guard let faceAnchor = anchor as? ARFaceAnchor else { return }
-        let blendShapes = faceAnchor.blendShapes
         
-        print(blendShapes)
-        
-        if let left = blendShapes[.eyeWideLeft], let right = blendShapes[.mouthSmileRight] {
-            
-            let smileParameter = min(max(CGFloat(truncating: left), CGFloat(truncating: right))/successTreshold, 1.0)
-            DispatchQueue.main.async {
-                self.smileView.drawSmile(parameter: smileParameter)
-                if smileParameter == 1 {
-                    if !self.unlocked {
-                        self.unlocked = true
-
-                        self.successSoundPlaying?()
-                        UIView.animate(withDuration: 0.5, animations: {
-                            self.checkmarkView.alpha = 1.0
-                        }, completion: { _ in
-                            self.onSuccess?()
-                        })
-                    }
-                }
-            }
-        }
+        Emotion.recognized(in: anchor)
     }
 }
 
