@@ -71,6 +71,9 @@ extension ViewController: ARSCNViewDelegate {
         
         guard let faceAnchor = anchor as? ARFaceAnchor else { return }
         blendShapes = faceAnchor.blendShapes
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
         
         let emotion = Emotion.recognized(in: anchor)
         print(emotion)
