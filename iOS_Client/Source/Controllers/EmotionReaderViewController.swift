@@ -10,47 +10,13 @@ import UIKit
 import ARKit
 import CoreML
 
-class EmotionReaderViewController: UIViewController {
-    
-    var emotionModel: EmotionModel = {
-        // Look for sync'd model
-        guard let appSupportDirectory = try? FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: false) else {
-            // Fallback
-            print("falling back on local model")
-            return EmotionModel()
-        }
-        let expectedURL = appSupportDirectory.appendingPathComponent("EmotionModel.mlmodel")
-        guard let model = try? EmotionModel(contentsOf: expectedURL) else {
-            // Fallback
-            print("falling back on local model")
-            return EmotionModel()
-        }
-        return model
-    }()
+class EmotionReaderViewController: FaceTrackerController {
     
     var currentEmotion: Emotion = .unknown
     
     let threshhold: Double = 0.6
     
-    var emotionProbabilities: [Emotion:NSNumber] = [:] 
-    
-    var faceTrackingConfig: ARFaceTrackingConfiguration {
-        let configuration = ARFaceTrackingConfiguration()
-        configuration.isLightEstimationEnabled = true
-        return configuration
-    }
-    
-    lazy var sceneView: ARSCNView = {
-        let sceneView = ARSCNView(frame: view.bounds)
-        sceneView.automaticallyUpdatesLighting = true
-        sceneView.isHidden = true
-        sceneView.delegate = self
-        return sceneView
-    }()
-    
-    var session: ARSession {
-        return sceneView.session
-    }
+    var emotionProbabilities: [Emotion:NSNumber] = [:]
     
     let titleLabel: UILabel = {
         let label = UILabel()
@@ -81,8 +47,8 @@ class EmotionReaderViewController: UIViewController {
     
     // MARK: - Initialization
     
-    public init() {
-        super.init(nibName: nil, bundle: nil)
+    override init() {
+        super.init()
         title = "CoreML Test"
     }
     
@@ -93,8 +59,8 @@ class EmotionReaderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        sceneView.isHidden = true
         view.backgroundColor = .white
-        view.addSubview(sceneView)
         view.addSubview(titleLabel)
         view.addSubview(subtitleLabel)
         view.addSubview(tableView)
@@ -109,31 +75,6 @@ class EmotionReaderViewController: UIViewController {
             emotionProbabilities[$0] = 0
         }
     }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-        pauseCapture()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        resumeCapture()
-    }
-    
-    func resumeCapture() {
-        
-        session.run(faceTrackingConfig, options: [.resetTracking, .removeExistingAnchors])
-    }
-    
-    func pauseCapture() {
-        
-        session.pause()
-    }
-}
-
-extension EmotionReaderViewController: ARSCNViewDelegate {
     
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
         

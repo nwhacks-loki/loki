@@ -40,9 +40,6 @@ class CoreMLSyncViewController: UIViewController {
                 return
             }
             self?.replaceEmotionModel(at: url)
-            DispatchQueue.main.async {
-                wheel.removeFromSuperview()
-            }
         }
         downloadWheel?.present(self)
     }

@@ -9,25 +9,7 @@
 import UIKit
 import ARKit
 
-class TrainerViewController: UIViewController {
-    
-    var faceTrackingConfig: ARFaceTrackingConfiguration {
-        let configuration = ARFaceTrackingConfiguration()
-        configuration.isLightEstimationEnabled = true
-        return configuration
-    }
-    
-    lazy var sceneView: ARSCNView = {
-        let sceneView = ARSCNView(frame: view.bounds)
-        sceneView.automaticallyUpdatesLighting = true
-        sceneView.isHidden = true
-        sceneView.delegate = self
-        return sceneView
-    }()
-    
-    var session: ARSession {
-        return sceneView.session
-    }
+class TrainerViewController: FaceTrackerController {
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -42,8 +24,8 @@ class TrainerViewController: UIViewController {
     
     // MARK: - Initialization
  
-    public init() {
-        super.init(nibName: nil, bundle: nil)
+    override init() {
+        super.init()
         title = "CoreML Trainer"
     }
     
@@ -56,10 +38,10 @@ class TrainerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        sceneView.isHidden = true
         view.backgroundColor = .white
         tableView.frame = view.bounds
         view.addSubview(tableView)
-        view.addSubview(sceneView)
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .play,
                                                            target: self,
@@ -69,18 +51,6 @@ class TrainerViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .camera,
                                                             target: self,
                                                             action: #selector(captureCurrentEmption))
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-        pauseCapture()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        resumeCapture()
     }
     
     // MARK: - User Actions
@@ -110,30 +80,11 @@ class TrainerViewController: UIViewController {
         present(actionSheet, animated: true, completion: nil)
     }
     
-    func pauseCapture() {
-        
-        session.pause()
-        navigationItem.rightBarButtonItem?.isEnabled = false
-        navigationItem.leftBarButtonItem?.isEnabled = true
-    }
-    
-    @objc
-    func resumeCapture() {
-        
-        session.run(faceTrackingConfig, options: [.resetTracking, .removeExistingAnchors])
-        navigationItem.rightBarButtonItem?.isEnabled = true
-        navigationItem.leftBarButtonItem?.isEnabled = false
-    }
-    
     // MARK: - ARKit
   
     func playChime() {
         AudioServicesPlaySystemSound(1075)
     }
-
-}
-
-extension TrainerViewController: ARSCNViewDelegate {
     
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
         
@@ -143,6 +94,7 @@ extension TrainerViewController: ARSCNViewDelegate {
             self.tableView.reloadData()
         }
     }
+
 }
 
 extension TrainerViewController: UITableViewDataSource, UITableViewDelegate {

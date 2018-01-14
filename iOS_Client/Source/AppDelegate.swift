@@ -24,8 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let viewControllers: [UINavigationController] = [
             UINavigationController(rootViewController: TrainerViewController()),
-            UINavigationController(rootViewController: CoreMLSyncViewController()),
             UINavigationController(rootViewController: EmotionReaderViewController()),
+            UINavigationController(rootViewController: CoreMLSyncViewController()),
             UINavigationController(rootViewController: PictureFeedViewController())
         ]
             

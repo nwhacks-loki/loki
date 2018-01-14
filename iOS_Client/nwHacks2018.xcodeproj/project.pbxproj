@@ -36,6 +36,7 @@
 		3879A973200B6E8400DAA6CD /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3879A972200B6E8400DAA6CD /* Random.swift */; };
 		3879A975200B6EE000DAA6CD /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3879A974200B6EE000DAA6CD /* Date+Extensions.swift */; };
 		3879A977200B708F00DAA6CD /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3879A976200B708F00DAA6CD /* UIColor+Extensions.swift */; };
+		3879A979200B841200DAA6CD /* FaceTrackerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3879A978200B841200DAA6CD /* FaceTrackerController.swift */; };
 		7FA86116FBC0AE9535ED31C7 /* Pods_nwHacks2018.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA18AAB5BAF0DE6D57396CBD /* Pods_nwHacks2018.framework */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +85,7 @@
 		3879A972200B6E8400DAA6CD /* Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
 		3879A974200B6EE000DAA6CD /* Date+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		3879A976200B708F00DAA6CD /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		3879A978200B841200DAA6CD /* FaceTrackerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceTrackerController.swift; sourceTree = "<group>"; };
 		3D489879035D16C9E0E3B78C /* Pods-nwHacks2018.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nwHacks2018.debug.xcconfig"; path = "Pods/Target Support Files/Pods-nwHacks2018/Pods-nwHacks2018.debug.xcconfig"; sourceTree = "<group>"; };
 		8BA6B6A766EB787AC8DFB16D /* Pods-nwHacks2018.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nwHacks2018.release.xcconfig"; path = "Pods/Target Support Files/Pods-nwHacks2018/Pods-nwHacks2018.release.xcconfig"; sourceTree = "<group>"; };
 		AA18AAB5BAF0DE6D57396CBD /* Pods_nwHacks2018.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nwHacks2018.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -178,6 +180,7 @@
 		3842471B200AC52900BE2AEF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3879A978200B841200DAA6CD /* FaceTrackerController.swift */,
 				38424712200AC50B00BE2AEF /* TrainerViewController.swift */,
 				38424750200B46A600BE2AEF /* CoreMLSyncViewController.swift */,
 				38424735200B231C00BE2AEF /* EmotionReaderViewController.swift */,
@@ -380,6 +383,7 @@
 				3879A95F200B627300DAA6CD /* FeedCell.swift in Sources */,
 				3879A96D200B683000DAA6CD /* Header.swift in Sources */,
 				38424730200B22B300BE2AEF /* DynamicTabBarController.swift in Sources */,
+				3879A979200B841200DAA6CD /* FaceTrackerController.swift in Sources */,
 				38424732200B22B300BE2AEF /* DynamicTabBarCell.swift in Sources */,
 				38424751200B46A600BE2AEF /* CoreMLSyncViewController.swift in Sources */,
 				38424727200AC6A100BE2AEF /* Emotion.swift in Sources */,

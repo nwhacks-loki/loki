@@ -174,7 +174,12 @@ open class DownloadWheel: UIView {
     
     open func dismiss(animated: Bool = true) {
         
-        guard currentState == .active else { return }
+        guard currentState == .active else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+                self.dismiss(animated: animated)
+            })
+            return
+        }
         currentState = .transitioning
         DispatchQueue.main.async {
             if animated {
