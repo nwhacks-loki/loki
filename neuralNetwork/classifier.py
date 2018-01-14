@@ -31,7 +31,7 @@ class Computation:
         print(model.summary())
         return model
 
-    def prepareData(self, data):
+    def prepareData(self, data, test_data):
         emotion = []
         dimensions = []
         for face in data:
@@ -43,9 +43,18 @@ class Computation:
                     faceData.append(value)
 
             dimensions.append(faceData)
+
+        # Separate the test datapoint
+        test_X = dimensions[test_data]
+        test_y = emotion[test_data]
+
+        dimensions.pop(test_data)
+        emotion.pop(test_data)
+
         oneHotOutput = np.eye(4)[emotion]
         input = np.asarray(dimensions)
-        return input, oneHotOutput
+
+        return input, oneHotOutput, test_X, test_y
 
     def loadDBData(self):
         db_data = []
@@ -53,19 +62,19 @@ class Computation:
             db_data.append(entry.data)
         return db_data
 
-    def testDatapoint(self, datapoint, model, input, output):
-        prediction = model.predict(np.asarray([input[datapoint]]), verbose=0)[0]
+    def testDatapoint(self, model, X, y):
+        prediction = model.predict(np.asarray([X]), verbose=0)[0]
         groundTruth = 'unknown'
-        if output[datapoint][0] == 1:
+        if y == 0:
             groundTruth = 'happy'
 
-        if output[datapoint][1] == 1:
+        if y == 1:
             groundTruth = 'sad'
 
-        if output[datapoint][2] == 1:
+        if y == 2:
             groundTruth = 'angry'
 
-        if output[datapoint][3] == 1:
+        if y == 3:
             groundTruth = 'surprised'
 
         print("")
@@ -88,6 +97,9 @@ class Computation:
 
 
 def train_model(output_mlmodel=False):
+
+    test_datapoint = 9
+
     # Create new Object
     computation = Computation()
 
@@ -95,7 +107,7 @@ def train_model(output_mlmodel=False):
     dbData = computation.loadDBData()
 
     # Preprocess the data for the neural network
-    X, y = computation.prepareData(dbData)
+    X, y, test_X, test_y = computation.prepareData(dbData, test_datapoint)
 
     # Generate the neural network topology
     model = computation.feedForwardNetwork(51,40, 30,4)
@@ -108,7 +120,7 @@ def train_model(output_mlmodel=False):
     print("Saved trained Keras model to `model.h5`.")
 
     # Define the test case
-    computation.testDatapoint(6, model, X, y)
+    computation.testDatapoint(model, test_X, test_y)
 
     # Comment in when running on the server
     # Save the neural network as a iPhone compatible ML model
