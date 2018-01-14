@@ -33,8 +33,8 @@ def train_model_endpoint():
     sys.path.insert(0, '../neuralNetwork')
     from classifier import train_model
 
-    train_model(output_mlmodel=True)
-    return 'Success!'
+    hist = train_model(output_mlmodel=True)
+    return jsonify(hist)
 
 
 @app.route('/model')
