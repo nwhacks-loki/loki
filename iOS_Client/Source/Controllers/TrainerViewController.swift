@@ -102,7 +102,7 @@ class TrainerViewController: UIViewController {
                 }
                 record.saveInBackground()
                 Ping(text: "Sent FaceRecord Model to Neural Net", style: .info).show()
-                
+                self.resumeCapture()
             })
             actionSheet.addAction(action)
         }

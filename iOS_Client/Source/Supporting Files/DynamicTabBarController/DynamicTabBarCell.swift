@@ -50,7 +50,8 @@ open class DynamicTabBarCell: UICollectionViewCell {
     open var label: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 12)
+        label.font = UIFont.systemFont(ofSize: 13)
+        label.numberOfLines = 0
         return label
     }()
     

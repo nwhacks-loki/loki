@@ -16,13 +16,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        UIApplication.shared.statusBarStyle = .lightContent
         window = UIWindow(frame: UIScreen.main.bounds)
-        let tabBarController = DynamicTabBarController(viewControllers: [
+        
+        let facebookBlue = UIColor(hex: "3b5998")
+        Alert.Defaults.Color.Info = facebookBlue
+        
+        let viewControllers: [UINavigationController] = [
             UINavigationController(rootViewController: TrainerViewController()),
             UINavigationController(rootViewController: CoreMLSyncViewController()),
             UINavigationController(rootViewController: EmotionReaderViewController()),
             UINavigationController(rootViewController: PictureFeedViewController())
-        ])
+        ]
+            
+        viewControllers.forEach {
+            $0.navigationBar.barTintColor = facebookBlue
+            $0.navigationBar.tintColor = .white
+            $0.navigationBar.titleTextAttributes = [
+                NSAttributedStringKey.foregroundColor : UIColor.white
+            ]
+            $0.navigationBar.isTranslucent = false
+        }
+        
+        let tabBarController = DynamicTabBarController(viewControllers: viewControllers)
+        tabBarController.tabBar.activeTintColor = facebookBlue
+        tabBarController.tabBar.backgroundColor = UIColor(hex: "dfe3ee")
+        
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
                 

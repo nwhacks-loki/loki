@@ -52,7 +52,7 @@ class PictureFeedViewController: UICollectionViewController {
     public init() {
         let layout = UICollectionViewFlowLayout()
         super.init(collectionViewLayout: layout)
-        title = "Emotion Predictor"
+        title = "Demo"
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -62,9 +62,19 @@ class PictureFeedViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView?.backgroundColor = .white
+        collectionView?.contentInset.top = 10
+        collectionView?.backgroundColor = UIColor(hex: "f7f7f7")
         view.addSubview(sceneView)
         collectionView?.register(FeedCell.self, forCellWithReuseIdentifier: FeedCell.reuseIdentifier)
+        
+        let searchBar = UISearchBar()
+        searchBar.tintColor = .red
+        
+        
+        navigationItem.titleView = searchBar
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .camera, target: nil, action: nil)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -101,8 +111,6 @@ extension PictureFeedViewController: ARSCNViewDelegate {
         let sortedKeys = Array(blendShapes.keys).sorted { (lhs, rhs) -> Bool in
             return lhs.rawValue < rhs.rawValue
         } // ["A", "D", "Z"]
-        
-        print(sortedKeys.map { return $0.rawValue } )
         
         let mlInputArray = try! MLMultiArray(shape: [51], dataType: .double)
         
@@ -144,7 +152,10 @@ extension PictureFeedViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeedCell.reuseIdentifier, for: indexPath) as! FeedCell
-        cell.backgroundColor = indexPath.row % 2 == 0 ? .red : .blue
+        
+        cell.header.textLabel.text = Randoms.randomFakeName()
+        cell.header.detailTextLabel.text = Randoms.randomDateWithinDaysBeforeToday(30).string(dateStyle: .medium, timeStyle: .short)
+        cell.contentTextView.text = Lorem.paragraph()
         
         switch currentEmotion {
         case .happy:
@@ -165,10 +176,12 @@ extension PictureFeedViewController {
 
 extension PictureFeedViewController: UICollectionViewDelegateFlowLayout {
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 20
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        
-        return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.width)
+        return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.width + 130)
     }
 }
