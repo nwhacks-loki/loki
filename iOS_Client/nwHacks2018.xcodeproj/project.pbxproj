@@ -10,11 +10,18 @@
 		38424713200AC50B00BE2AEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3842470D200AC50B00BE2AEF /* AppDelegate.swift */; };
 		38424714200AC50B00BE2AEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3842470E200AC50B00BE2AEF /* Assets.xcassets */; };
 		38424715200AC50B00BE2AEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3842470F200AC50B00BE2AEF /* LaunchScreen.storyboard */; };
-		38424717200AC50B00BE2AEF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38424712200AC50B00BE2AEF /* ViewController.swift */; };
+		38424717200AC50B00BE2AEF /* TrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38424712200AC50B00BE2AEF /* TrainerViewController.swift */; };
 		38424720200AC5EA00BE2AEF /* CheckmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3842471D200AC5EA00BE2AEF /* CheckmarkView.swift */; };
 		38424722200AC5EA00BE2AEF /* SmileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3842471F200AC5EA00BE2AEF /* SmileView.swift */; };
 		38424727200AC6A100BE2AEF /* Emotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38424726200AC6A100BE2AEF /* Emotion.swift */; };
 		38424729200AD80800BE2AEF /* FaceRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38424728200AD80800BE2AEF /* FaceRecord.swift */; };
+		3842472F200B22B300BE2AEF /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3842472A200B22B300BE2AEF /* UIView+AutoLayout.swift */; };
+		38424730200B22B300BE2AEF /* DynamicTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3842472B200B22B300BE2AEF /* DynamicTabBarController.swift */; };
+		38424731200B22B300BE2AEF /* DynamicTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3842472C200B22B300BE2AEF /* DynamicTabBar.swift */; };
+		38424732200B22B300BE2AEF /* DynamicTabBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3842472D200B22B300BE2AEF /* DynamicTabBarCell.swift */; };
+		38424733200B22B300BE2AEF /* NSConstraintLayoutSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3842472E200B22B300BE2AEF /* NSConstraintLayoutSet.swift */; };
+		38424736200B231C00BE2AEF /* EmotionReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38424735200B231C00BE2AEF /* EmotionReaderViewController.swift */; };
+		38424738200B23C200BE2AEF /* EmotionModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 38424737200B23C200BE2AEF /* EmotionModel.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,11 +30,18 @@
 		3842470E200AC50B00BE2AEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		38424710200AC50B00BE2AEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		38424711200AC50B00BE2AEF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		38424712200AC50B00BE2AEF /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		38424712200AC50B00BE2AEF /* TrainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainerViewController.swift; sourceTree = "<group>"; };
 		3842471D200AC5EA00BE2AEF /* CheckmarkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckmarkView.swift; sourceTree = "<group>"; };
 		3842471F200AC5EA00BE2AEF /* SmileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmileView.swift; sourceTree = "<group>"; };
 		38424726200AC6A100BE2AEF /* Emotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emotion.swift; sourceTree = "<group>"; };
 		38424728200AD80800BE2AEF /* FaceRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceRecord.swift; sourceTree = "<group>"; };
+		3842472A200B22B300BE2AEF /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
+		3842472B200B22B300BE2AEF /* DynamicTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicTabBarController.swift; sourceTree = "<group>"; };
+		3842472C200B22B300BE2AEF /* DynamicTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicTabBar.swift; sourceTree = "<group>"; };
+		3842472D200B22B300BE2AEF /* DynamicTabBarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicTabBarCell.swift; sourceTree = "<group>"; };
+		3842472E200B22B300BE2AEF /* NSConstraintLayoutSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSConstraintLayoutSet.swift; sourceTree = "<group>"; };
+		38424735200B231C00BE2AEF /* EmotionReaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionReaderViewController.swift; sourceTree = "<group>"; };
+		38424737200B23C200BE2AEF /* EmotionModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = EmotionModel.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +76,7 @@
 			children = (
 				3842470D200AC50B00BE2AEF /* AppDelegate.swift */,
 				3842470E200AC50B00BE2AEF /* Assets.xcassets */,
+				38424737200B23C200BE2AEF /* EmotionModel.mlmodel */,
 				3842471F200AC5EA00BE2AEF /* SmileView.swift */,
 				3842471D200AC5EA00BE2AEF /* CheckmarkView.swift */,
 				3842471B200AC52900BE2AEF /* Controllers */,
@@ -76,6 +91,7 @@
 		38424718200AC51300BE2AEF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				38424734200B22B700BE2AEF /* DynamicTabBarController */,
 				3842470F200AC50B00BE2AEF /* LaunchScreen.storyboard */,
 				38424711200AC50B00BE2AEF /* Info.plist */,
 			);
@@ -101,7 +117,8 @@
 		3842471B200AC52900BE2AEF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				38424712200AC50B00BE2AEF /* ViewController.swift */,
+				38424712200AC50B00BE2AEF /* TrainerViewController.swift */,
+				38424735200B231C00BE2AEF /* EmotionReaderViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -111,6 +128,18 @@
 			children = (
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		38424734200B22B700BE2AEF /* DynamicTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				3842472C200B22B300BE2AEF /* DynamicTabBar.swift */,
+				3842472D200B22B300BE2AEF /* DynamicTabBarCell.swift */,
+				3842472B200B22B300BE2AEF /* DynamicTabBarController.swift */,
+				3842472E200B22B300BE2AEF /* NSConstraintLayoutSet.swift */,
+				3842472A200B22B300BE2AEF /* UIView+AutoLayout.swift */,
+			);
+			path = DynamicTabBarController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,12 +213,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38424717200AC50B00BE2AEF /* ViewController.swift in Sources */,
+				38424717200AC50B00BE2AEF /* TrainerViewController.swift in Sources */,
+				38424731200B22B300BE2AEF /* DynamicTabBar.swift in Sources */,
 				38424720200AC5EA00BE2AEF /* CheckmarkView.swift in Sources */,
 				38424713200AC50B00BE2AEF /* AppDelegate.swift in Sources */,
+				38424738200B23C200BE2AEF /* EmotionModel.mlmodel in Sources */,
+				38424733200B22B300BE2AEF /* NSConstraintLayoutSet.swift in Sources */,
+				3842472F200B22B300BE2AEF /* UIView+AutoLayout.swift in Sources */,
 				38424722200AC5EA00BE2AEF /* SmileView.swift in Sources */,
+				38424730200B22B300BE2AEF /* DynamicTabBarController.swift in Sources */,
+				38424732200B22B300BE2AEF /* DynamicTabBarCell.swift in Sources */,
 				38424727200AC6A100BE2AEF /* Emotion.swift in Sources */,
 				38424729200AD80800BE2AEF /* FaceRecord.swift in Sources */,
+				38424736200B231C00BE2AEF /* EmotionReaderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
