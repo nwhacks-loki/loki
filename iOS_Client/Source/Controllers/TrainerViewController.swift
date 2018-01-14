@@ -34,6 +34,7 @@ class TrainerViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.tableFooterView = UIView()
+        tableView.contentInset.bottom = 100
         return tableView
     }()
     
@@ -153,9 +154,21 @@ extension TrainerViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
         cell.textLabel?.text = Array(blendShapes.keys)[indexPath.row].rawValue
-        cell.detailTextLabel?.text = "\(Array(blendShapes.values)[indexPath.row])"
+        
+        let probability = Array(blendShapes.values)[indexPath.row].doubleValue
+        
+        cell.detailTextLabel?.text = "\(probability)"
         cell.detailTextLabel?.textColor = .darkGray
         cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        
+        if probability >= 0.7 {
+            cell.detailTextLabel?.textColor = .green
+        } else if probability > 0.25 {
+            cell.detailTextLabel?.textColor = .orange
+        } else {
+            cell.detailTextLabel?.textColor = .red
+        }
+        
         return cell
     }
     

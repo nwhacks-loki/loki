@@ -8,12 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		04EE6F2C200B3A6400AF1206 /* PictureFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE6F2B200B3A6400AF1206 /* PictureFeedViewController.swift */; };
-		04EE6F9A200B5D5400AF1206 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE6F99200B5D5400AF1206 /* FeedCell.swift */; };
 		38424713200AC50B00BE2AEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3842470D200AC50B00BE2AEF /* AppDelegate.swift */; };
 		38424714200AC50B00BE2AEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3842470E200AC50B00BE2AEF /* Assets.xcassets */; };
 		38424715200AC50B00BE2AEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3842470F200AC50B00BE2AEF /* LaunchScreen.storyboard */; };
 		38424717200AC50B00BE2AEF /* TrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38424712200AC50B00BE2AEF /* TrainerViewController.swift */; };
-		38424722200AC5EA00BE2AEF /* SmileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3842471F200AC5EA00BE2AEF /* SmileView.swift */; };
 		38424727200AC6A100BE2AEF /* Emotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38424726200AC6A100BE2AEF /* Emotion.swift */; };
 		38424729200AD80800BE2AEF /* FaceRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38424728200AD80800BE2AEF /* FaceRecord.swift */; };
 		38424730200B22B300BE2AEF /* DynamicTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3842472B200B22B300BE2AEF /* DynamicTabBarController.swift */; };
@@ -31,18 +29,18 @@
 		3842474D200B448C00BE2AEF /* UIDevice+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3842474B200B448C00BE2AEF /* UIDevice+Extensions.swift */; };
 		3842474F200B44A100BE2AEF /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3842474E200B44A100BE2AEF /* UIView+AutoLayout.swift */; };
 		38424751200B46A600BE2AEF /* CoreMLSyncViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38424750200B46A600BE2AEF /* CoreMLSyncViewController.swift */; };
+		3879A95F200B627300DAA6CD /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3879A95E200B627300DAA6CD /* FeedCell.swift */; };
+		3879A961200B629D00DAA6CD /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3879A960200B629C00DAA6CD /* StatsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		04EE6F2B200B3A6400AF1206 /* PictureFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureFeedViewController.swift; sourceTree = "<group>"; };
-		04EE6F99200B5D5400AF1206 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		384246FA200AC47400BE2AEF /* nwHacks2018.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nwHacks2018.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3842470D200AC50B00BE2AEF /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3842470E200AC50B00BE2AEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		38424710200AC50B00BE2AEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		38424711200AC50B00BE2AEF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38424712200AC50B00BE2AEF /* TrainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainerViewController.swift; sourceTree = "<group>"; };
-		3842471F200AC5EA00BE2AEF /* SmileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmileView.swift; sourceTree = "<group>"; };
 		38424726200AC6A100BE2AEF /* Emotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emotion.swift; sourceTree = "<group>"; };
 		38424728200AD80800BE2AEF /* FaceRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceRecord.swift; sourceTree = "<group>"; };
 		3842472B200B22B300BE2AEF /* DynamicTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicTabBarController.swift; sourceTree = "<group>"; };
@@ -60,6 +58,8 @@
 		3842474B200B448C00BE2AEF /* UIDevice+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extensions.swift"; sourceTree = "<group>"; };
 		3842474E200B44A100BE2AEF /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
 		38424750200B46A600BE2AEF /* CoreMLSyncViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMLSyncViewController.swift; sourceTree = "<group>"; };
+		3879A95E200B627300DAA6CD /* FeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		3879A960200B629C00DAA6CD /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,7 +127,7 @@
 		3842471A200AC52500BE2AEF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				04EE6F99200B5D5400AF1206 /* FeedCell.swift */,
+				3879A95E200B627300DAA6CD /* FeedCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -139,6 +139,7 @@
 				38424750200B46A600BE2AEF /* CoreMLSyncViewController.swift */,
 				38424735200B231C00BE2AEF /* EmotionReaderViewController.swift */,
 				04EE6F2B200B3A6400AF1206 /* PictureFeedViewController.swift */,
+				3879A960200B629C00DAA6CD /* StatsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -260,13 +261,13 @@
 				38424745200B447100BE2AEF /* DownloadWheel.swift in Sources */,
 				3842474F200B44A100BE2AEF /* UIView+AutoLayout.swift in Sources */,
 				3842474C200B448C00BE2AEF /* UIColor+Extensions.swift in Sources */,
+				3879A961200B629D00DAA6CD /* StatsViewController.swift in Sources */,
 				38424744200B447100BE2AEF /* Alert.swift in Sources */,
 				3842474D200B448C00BE2AEF /* UIDevice+Extensions.swift in Sources */,
-				38424722200AC5EA00BE2AEF /* SmileView.swift in Sources */,
+				3879A95F200B627300DAA6CD /* FeedCell.swift in Sources */,
 				38424730200B22B300BE2AEF /* DynamicTabBarController.swift in Sources */,
 				38424732200B22B300BE2AEF /* DynamicTabBarCell.swift in Sources */,
 				38424751200B46A600BE2AEF /* CoreMLSyncViewController.swift in Sources */,
-				04EE6F9A200B5D5400AF1206 /* FeedCell.swift in Sources */,
 				38424727200AC6A100BE2AEF /* Emotion.swift in Sources */,
 				38424729200AD80800BE2AEF /* FaceRecord.swift in Sources */,
 				38424736200B231C00BE2AEF /* EmotionReaderViewController.swift in Sources */,

@@ -176,17 +176,19 @@ open class DownloadWheel: UIView {
         
         guard currentState == .active else { return }
         currentState = .transitioning
-        if animated {
-            UIView.transition(with: self, duration: 0.3, options: .curveEaseOut, animations: {
-                self.alpha = 0
-                self.transform = CGAffineTransform(scaleX: 2, y: 2)
-            }, completion: { _ in
+        DispatchQueue.main.async {
+            if animated {
+                UIView.transition(with: self, duration: 0.3, options: .curveEaseOut, animations: {
+                    self.alpha = 0
+                    self.transform = CGAffineTransform(scaleX: 2, y: 2)
+                }, completion: { _ in
+                    self.currentState = .inactive
+                    self.removeFromSuperview()
+                })
+            } else {
                 self.currentState = .inactive
                 self.removeFromSuperview()
-            })
-        } else {
-            currentState = .inactive
-            removeFromSuperview()
+            }
         }
     }
     
