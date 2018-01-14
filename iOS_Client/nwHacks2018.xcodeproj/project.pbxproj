@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		04EE6F2C200B3A6400AF1206 /* PictureFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE6F2B200B3A6400AF1206 /* PictureFeedViewController.swift */; };
+		04EE6F9A200B5D5400AF1206 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE6F99200B5D5400AF1206 /* FeedCell.swift */; };
 		38424713200AC50B00BE2AEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3842470D200AC50B00BE2AEF /* AppDelegate.swift */; };
 		38424714200AC50B00BE2AEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3842470E200AC50B00BE2AEF /* Assets.xcassets */; };
 		38424715200AC50B00BE2AEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3842470F200AC50B00BE2AEF /* LaunchScreen.storyboard */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		04EE6F2B200B3A6400AF1206 /* PictureFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureFeedViewController.swift; sourceTree = "<group>"; };
+		04EE6F99200B5D5400AF1206 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		384246FA200AC47400BE2AEF /* nwHacks2018.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nwHacks2018.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3842470D200AC50B00BE2AEF /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3842470E200AC50B00BE2AEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -125,7 +127,7 @@
 		3842471A200AC52500BE2AEF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3842471F200AC5EA00BE2AEF /* SmileView.swift */,
+				04EE6F99200B5D5400AF1206 /* FeedCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -264,6 +266,7 @@
 				38424730200B22B300BE2AEF /* DynamicTabBarController.swift in Sources */,
 				38424732200B22B300BE2AEF /* DynamicTabBarCell.swift in Sources */,
 				38424751200B46A600BE2AEF /* CoreMLSyncViewController.swift in Sources */,
+				04EE6F9A200B5D5400AF1206 /* FeedCell.swift in Sources */,
 				38424727200AC6A100BE2AEF /* Emotion.swift in Sources */,
 				38424729200AD80800BE2AEF /* FaceRecord.swift in Sources */,
 				38424736200B231C00BE2AEF /* EmotionReaderViewController.swift in Sources */,
