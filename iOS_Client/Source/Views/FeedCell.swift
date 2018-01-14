@@ -20,7 +20,7 @@ class FeedCell: UICollectionViewCell {
         let textView = UITextView()
         textView.isEditable = false
         textView.isScrollEnabled = false
-        textView.font = UIFont.systemFont(ofSize: 15)
+        textView.font = UIFont.systemFont(ofSize: 13)
         return textView
     }()
     

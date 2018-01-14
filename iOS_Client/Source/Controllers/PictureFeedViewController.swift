@@ -30,7 +30,7 @@ class PictureFeedViewController: UICollectionViewController {
     
     var currentEmotion: Emotion = .unknown
     
-    let threshhold: Double = 0.7
+    let threshhold: Double = 0.6
     
     var emotionProbabilities: [Emotion:NSNumber] = [
         .happy:0,
@@ -174,15 +174,15 @@ extension PictureFeedViewController {
         
         switch currentEmotion {
         case .happy:
-            cell.imageView.image = UIImage(named:("happy\(randomNum)"))
+            cell.imageView.image = UIImage(named:("happy\(randomNum)")) ?? UIImage(named:("unknown\(Randoms.randomInt(0, 2))"))
         case .sad:
-            cell.imageView.image = UIImage(named:("sad\(randomNum)"))
+            cell.imageView.image = UIImage(named:("sad\(randomNum)")) ?? UIImage(named:("unknown\(Randoms.randomInt(0, 2))"))
         case .angry:
-            cell.imageView.image = UIImage(named:("angry\(randomNum)"))
+            cell.imageView.image = UIImage(named:("angry\(randomNum)")) ?? UIImage(named:("unknown\(Randoms.randomInt(0, 2))"))
         case .surprised:
-            cell.imageView.image = UIImage(named:("surprise\(randomNum)"))
+            cell.imageView.image = UIImage(named:("surprise\(randomNum)")) ?? UIImage(named:("unknown\(Randoms.randomInt(0, 2))"))
         default:
-            cell.imageView.image = UIImage(named:("unknown"))
+            cell.imageView.image = UIImage(named:("unknown\(Randoms.randomInt(0, 2))"))
         }
 
         return cell

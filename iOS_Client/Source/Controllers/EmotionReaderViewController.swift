@@ -30,7 +30,7 @@ class EmotionReaderViewController: UIViewController {
     
     var currentEmotion: Emotion = .unknown
     
-    let threshhold: Double = 0.7
+    let threshhold: Double = 0.6
     
     var emotionProbabilities: [Emotion:NSNumber] = [:] 
     
