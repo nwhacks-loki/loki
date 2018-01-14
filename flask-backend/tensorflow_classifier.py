@@ -104,7 +104,7 @@ def FeedForwardNetwork(nb_datapoints, hidden_neurons_1, hidden_neurons_2, output
 
 test_datapoint = 9
 
-inputs, outputs, updates, y_pred = FeedForwardNetwork(51, 100, 100, 4)
+inputs, outputs, updates, y_pred = FeedForwardNetwork(51, 40, 30, 4)
 
 dbData = loadDBData()
 
