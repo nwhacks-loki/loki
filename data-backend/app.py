@@ -51,6 +51,10 @@ def serve_model():
     )
 
 
+@app.route('/data')
+def get_data():
+    return jsonify([e.data for e in Emotion.select()])
+
 
 if __name__ == '__main__':
     db.connect()
