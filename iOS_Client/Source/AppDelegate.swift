@@ -19,7 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         let tabBarController = DynamicTabBarController(viewControllers: [
             UINavigationController(rootViewController: TrainerViewController()),
-            UINavigationController(rootViewController: EmotionReaderViewController())
+            UINavigationController(rootViewController: EmotionReaderViewController()),
+            UINavigationController(rootViewController: PictureFeedViewController())
         ])
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()

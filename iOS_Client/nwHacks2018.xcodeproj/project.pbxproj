@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04EE6F2C200B3A6400AF1206 /* PictureFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE6F2B200B3A6400AF1206 /* PictureFeedViewController.swift */; };
 		38424713200AC50B00BE2AEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3842470D200AC50B00BE2AEF /* AppDelegate.swift */; };
 		38424714200AC50B00BE2AEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3842470E200AC50B00BE2AEF /* Assets.xcassets */; };
 		38424715200AC50B00BE2AEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3842470F200AC50B00BE2AEF /* LaunchScreen.storyboard */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04EE6F2B200B3A6400AF1206 /* PictureFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureFeedViewController.swift; sourceTree = "<group>"; };
 		384246FA200AC47400BE2AEF /* nwHacks2018.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nwHacks2018.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3842470D200AC50B00BE2AEF /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3842470E200AC50B00BE2AEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 			children = (
 				38424712200AC50B00BE2AEF /* TrainerViewController.swift */,
 				38424735200B231C00BE2AEF /* EmotionReaderViewController.swift */,
+				04EE6F2B200B3A6400AF1206 /* PictureFeedViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 				38424717200AC50B00BE2AEF /* TrainerViewController.swift in Sources */,
 				38424731200B22B300BE2AEF /* DynamicTabBar.swift in Sources */,
 				38424720200AC5EA00BE2AEF /* CheckmarkView.swift in Sources */,
+				04EE6F2C200B3A6400AF1206 /* PictureFeedViewController.swift in Sources */,
 				38424713200AC50B00BE2AEF /* AppDelegate.swift in Sources */,
 				3842473E200B365800BE2AEF /* EmotionModel.mlmodel in Sources */,
 				38424733200B22B300BE2AEF /* NSConstraintLayoutSet.swift in Sources */,
