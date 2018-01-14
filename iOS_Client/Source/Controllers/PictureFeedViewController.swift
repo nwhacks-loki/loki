@@ -12,7 +12,21 @@ import ARKit
 
 class PictureFeedViewController: UICollectionViewController {
     
-    var emotionModel = EmotionModel()
+    var emotionModel: EmotionModel = {
+        // Look for sync'd model
+        guard let appSupportDirectory = try? FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: false) else {
+            // Fallback
+            print("falling back on local model")
+            return EmotionModel()
+        }
+        let expectedURL = appSupportDirectory.appendingPathComponent("EmotionModel.mlmodel")
+        guard let model = try? EmotionModel(contentsOf: expectedURL) else {
+            // Fallback
+            print("falling back on local model")
+            return EmotionModel()
+        }
+        return model
+    }()
     
     var currentEmotion: Emotion = .unknown
     
@@ -43,8 +57,8 @@ class PictureFeedViewController: UICollectionViewController {
         return sceneView.session
     }
     
-    var randomNum: UInt32 {
-        return arc4random_uniform(4) + 0
+    var randomNum: Int {
+        return Randoms.randomInt(0, 5)
     }
     
     // MARK: - Initialization
