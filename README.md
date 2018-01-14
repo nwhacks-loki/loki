@@ -32,3 +32,8 @@ $ python app.py
 ## Tech Stack
 
 ![TechStack](images/loki-tech-stack.png?raw=true "TechStack")
+
+
+## Credits
+
+Logo courtesy of [Casmic Lab](https://tictail.com/casmiclab).
