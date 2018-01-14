@@ -19,3 +19,7 @@ $ cd flask-backend
 $ pip install -r requirements.txt
 $ python app.py
 ```
+
+## TecStack
+
+![TecStack](./docs/nwHacks_Loki_Stack.png?raw=true "TecStack")
