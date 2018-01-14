@@ -1,8 +1,7 @@
 import os
-import json
 import datetime
 
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_file
 
 from models import Emotion, db
 
@@ -26,6 +25,31 @@ def post_emotion():
 
     else:
         return jsonify({'error': 'invalid data'})
+
+
+@app.route('/train-model')
+def train_model_endpoint():
+    import sys
+    sys.path.insert(0, '../neuralNetwork')
+    from classifier import train_model
+
+    train_model(output_mlmodel=True)
+    return 'Success!'
+
+
+@app.route('/model')
+def serve_model():
+    if not os.path.isfile('model.mlmodel'):
+        print("Training model to serve...")
+        train_model_endpoint()
+
+    return send_file(
+        filename_or_fp='model.mlmodel',
+        mimetype='application/octet-stream',
+        as_attachment=True,
+        attachment_filename='model.mlmodel',
+    )
+
 
 
 if __name__ == '__main__':

@@ -1,9 +1,5 @@
 import sys
-import json
-import random
 
-import peewee
-import psycopg2
 import coremltools
 import numpy as np
 from keras.models import Sequential
