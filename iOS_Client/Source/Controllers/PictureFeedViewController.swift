@@ -62,7 +62,7 @@ class PictureFeedViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        collectionView?.backgroundColor = .white
         view.addSubview(sceneView)
         collectionView?.register(FeedCell.self, forCellWithReuseIdentifier: FeedCell.reuseIdentifier)
     }
@@ -146,18 +146,18 @@ extension PictureFeedViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeedCell.reuseIdentifier, for: indexPath) as! FeedCell
         cell.backgroundColor = indexPath.row % 2 == 0 ? .red : .blue
         
-//        switch currentEmotion {
-//        case .happy:
-////            cell.imageView?.image = UIImage(named:("happy\(randomNum)"))
-//        case .sad:
-////            cell.imageView?.image = UIImage(named:("sad\(randomNum)"))
-//        case .angry:
-////            cell.imageView?.image = UIImage(named:("angry\(randomNum)"))
-//        case .surprised:
-////            cell.imageView?.image = UIImage(named:("surprise\(randomNum)"))
-//        default:
-////            cell.imageView?.image = UIImage(named:("unknown"))
-//        }
+        switch currentEmotion {
+        case .happy:
+            cell.imageView.image = UIImage(named:("happy\(randomNum)"))
+        case .sad:
+            cell.imageView.image = UIImage(named:("sad\(randomNum)"))
+        case .angry:
+            cell.imageView.image = UIImage(named:("angry\(randomNum)"))
+        case .surprised:
+            cell.imageView.image = UIImage(named:("surprise\(randomNum)"))
+        default:
+            cell.imageView.image = UIImage(named:("unknown"))
+        }
 
         return cell
     }
@@ -169,6 +169,6 @@ extension PictureFeedViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         
-        return CGSize(width: collectionView.bounds.width, height: 200)
+        return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.width)
     }
 }
