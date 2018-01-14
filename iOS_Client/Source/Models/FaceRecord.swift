@@ -94,7 +94,7 @@ class FaceRecord: Codable {
     
     func saveInBackground() {
         
-        let endpoint = "https://nathantannar.me/api/prod/classes"
+        let endpoint = "http://54.202.58.125:5001/post-emotion"
         guard let data = try? JSONEncoder().encode(self), let url = URL(string: endpoint) else {
             print("something went wrong")
             return
