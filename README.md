@@ -9,7 +9,7 @@ Running the backend server:
 
 ```bash
 $ export DATABASE_URL=<Postgres URL>
-$ cd data-backend
+$ cd flask-backend
 $ pip install -r requirements.txt
 $ python app.py
 ```

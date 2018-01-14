@@ -1,16 +1,14 @@
 
 # Imports
 ##############################################
-import tensorflow as tf 
+import tensorflow as tf
 import numpy as np
 import json
-import sys
 import os
-from random import shuffle 
+from random import shuffle
 from tensorflow.python.framework import dtypes
 import nltk
 
-sys.path.insert(0, '../data-backend')
 from models import Emotion
 ##############################################
 
@@ -62,7 +60,7 @@ def prepareData(data, test_data):
 
  	# Separate the test datapoint
 	test_X = dimensions[test_data]
-	test_y = emotion[test_data]	
+	test_y = emotion[test_data]
 
 	dimensions.pop(test_data)
 	emotion.pop(test_data)

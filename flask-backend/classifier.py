@@ -1,11 +1,8 @@
-import sys
-
 import coremltools
 import numpy as np
 from keras.models import Sequential
 from keras.layers import Dense
 
-sys.path.insert(0, '../data-backend')
 from models import Emotion
 
 
