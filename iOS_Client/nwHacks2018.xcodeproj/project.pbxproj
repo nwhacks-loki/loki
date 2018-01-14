@@ -33,6 +33,19 @@
 		3879A961200B629D00DAA6CD /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3879A960200B629C00DAA6CD /* StatsViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		3879A968200B639700DAA6CD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		04EE6F2B200B3A6400AF1206 /* PictureFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureFeedViewController.swift; sourceTree = "<group>"; };
 		384246FA200AC47400BE2AEF /* nwHacks2018.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nwHacks2018.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -187,6 +200,7 @@
 				384246F6200AC47400BE2AEF /* Sources */,
 				384246F7200AC47400BE2AEF /* Frameworks */,
 				384246F8200AC47400BE2AEF /* Resources */,
+				3879A968200B639700DAA6CD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -403,6 +417,12 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JH5XJ55XGZ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Source/Supporting\\ Files",
+					"$(PROJECT_DIR)/Source/Supporting\\ Files",
+					"$(PROJECT_DIR)/Source/Supporting\\ Files",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Source/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "me.nathantannar.nwHacks2018-emotion";
@@ -425,6 +445,12 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JH5XJ55XGZ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Source/Supporting\\ Files",
+					"$(PROJECT_DIR)/Source/Supporting\\ Files",
+					"$(PROJECT_DIR)/Source/Supporting\\ Files",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Source/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "me.nathantannar.nwHacks2018-emotion";
