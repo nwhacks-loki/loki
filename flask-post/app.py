@@ -1,4 +1,5 @@
 import os
+import json
 
 from flask import Flask, request, jsonify
 
@@ -13,7 +14,7 @@ def index():
 @app.route('/post-emotion', methods=['POST'])
 def post_emotion():
     data = request.get_json(silent=True)
-    print(data)
+    print(json.dumps(data))
     return jsonify(data)
 
 
