@@ -154,6 +154,8 @@ extension TrainerViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
         cell.textLabel?.text = Array(blendShapes.keys)[indexPath.row].rawValue
         cell.detailTextLabel?.text = "\(Array(blendShapes.values)[indexPath.row])"
+        cell.detailTextLabel?.textColor = .darkGray
+        cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 18, weight: .medium)
         return cell
     }
     

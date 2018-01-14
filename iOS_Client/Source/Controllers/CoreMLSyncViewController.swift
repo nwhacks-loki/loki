@@ -36,7 +36,7 @@ class CoreMLSyncViewController: UIViewController {
         let url = URL(string: "http://54.190.62.122:5001/model")!
         downloadWheel = DownloadWheel().downloadFile(from: url) { [weak self] (wheel, url, error) in
             guard let url = url else {
-                Ping(text: error?.localizedDescription ?? "Error", style: .danger)
+                Ping(text: error?.localizedDescription ?? "Error", style: .danger).show()
                 return
             }
             self?.replaceEmotionModel(at: url)
@@ -53,7 +53,35 @@ class CoreMLSyncViewController: UIViewController {
     
     func replaceEmotionModel(at url: URL) {
         
-        let compiledUrl = try MLModel.compileModel(at: modelUrl)
-        let model = try MLModel(contentsOf: compiledUrl)
+        let compiledUrl = try! MLModel.compileModel(at: url)
+        //        let model = try! EmotionModel(contentsOf: compiledUrl)
+        
+        // find the app support directory
+        let fileManager = FileManager.default
+        let appSupportDirectory = try! fileManager.url(for: .applicationSupportDirectory,
+                                                       in: .userDomainMask,
+                                                       appropriateFor: compiledUrl,
+                                                       create: true)
+        
+        // create a permanent URL in the app support directory
+        let permanentUrl = appSupportDirectory.appendingPathComponent("EmotionModel.mlmodel")
+        
+        do {
+            // if the file exists, replace it. Otherwise, copy the file to the destination.
+            if fileManager.fileExists(atPath: permanentUrl.path) {
+                print("file exists, replacing model")
+                _ = try fileManager.replaceItemAt(permanentUrl, withItemAt: compiledUrl)
+            } else {
+                print("file does not exist, creating model")
+                try fileManager.copyItem(at: compiledUrl, to: permanentUrl)
+            }
+            DispatchQueue.main.async {
+                Ping(text: "Successfully Updated CoreML Model", style: .info).show()
+            }
+        } catch {
+            DispatchQueue.main.async {
+                Ping(text: "Error during copy: \(error.localizedDescription)", style: .danger).show()
+            }
+        } 
     }
 }
