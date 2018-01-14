@@ -86,6 +86,18 @@ class ViewController: UIViewController {
         navigationItem.leftBarButtonItem?.isEnabled = true
         
         // Send data to backend here //
+        
+        let actionSheet = UIAlertController(title: "Save", message: "What Emotion is this?", preferredStyle: .actionSheet)
+        let emotions: [Emotion] = [.happy, .sad, .angry, .surprised]
+        emotions.forEach { emotion in
+            let action = UIAlertAction(title: emotion.rawValue, style: .default, handler: { _ in
+                let record = FaceRecord.create(for: emotion, anchors: self.blendShapes)
+                record.saveInBackground()
+            })
+            actionSheet.addAction(action)
+        }
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(actionSheet, animated: false, completion: nil)
     }
     
     @objc
@@ -113,9 +125,6 @@ extension ViewController: ARSCNViewDelegate {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
-        
-        let emotion = Emotion.recognized(in: anchor)
-        print(emotion)
     }
 }
 

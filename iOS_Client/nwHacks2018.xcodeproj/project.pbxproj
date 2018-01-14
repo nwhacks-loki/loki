@@ -14,6 +14,7 @@
 		38424720200AC5EA00BE2AEF /* CheckmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3842471D200AC5EA00BE2AEF /* CheckmarkView.swift */; };
 		38424722200AC5EA00BE2AEF /* SmileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3842471F200AC5EA00BE2AEF /* SmileView.swift */; };
 		38424727200AC6A100BE2AEF /* Emotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38424726200AC6A100BE2AEF /* Emotion.swift */; };
+		38424729200AD80800BE2AEF /* FaceRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38424728200AD80800BE2AEF /* FaceRecord.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		3842471D200AC5EA00BE2AEF /* CheckmarkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckmarkView.swift; sourceTree = "<group>"; };
 		3842471F200AC5EA00BE2AEF /* SmileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmileView.swift; sourceTree = "<group>"; };
 		38424726200AC6A100BE2AEF /* Emotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emotion.swift; sourceTree = "<group>"; };
+		38424728200AD80800BE2AEF /* FaceRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceRecord.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 		38424719200AC52100BE2AEF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				38424728200AD80800BE2AEF /* FaceRecord.swift */,
 				38424726200AC6A100BE2AEF /* Emotion.swift */,
 			);
 			path = Models;
@@ -186,6 +189,7 @@
 				38424713200AC50B00BE2AEF /* AppDelegate.swift in Sources */,
 				38424722200AC5EA00BE2AEF /* SmileView.swift in Sources */,
 				38424727200AC6A100BE2AEF /* Emotion.swift in Sources */,
+				38424729200AD80800BE2AEF /* FaceRecord.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
