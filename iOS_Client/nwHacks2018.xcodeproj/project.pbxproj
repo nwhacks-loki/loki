@@ -21,7 +21,7 @@
 		38424732200B22B300BE2AEF /* DynamicTabBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3842472D200B22B300BE2AEF /* DynamicTabBarCell.swift */; };
 		38424733200B22B300BE2AEF /* NSConstraintLayoutSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3842472E200B22B300BE2AEF /* NSConstraintLayoutSet.swift */; };
 		38424736200B231C00BE2AEF /* EmotionReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38424735200B231C00BE2AEF /* EmotionReaderViewController.swift */; };
-		38424738200B23C200BE2AEF /* EmotionModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 38424737200B23C200BE2AEF /* EmotionModel.mlmodel */; };
+		3842473E200B365800BE2AEF /* EmotionModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3842473D200B365800BE2AEF /* EmotionModel.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,7 +41,7 @@
 		3842472D200B22B300BE2AEF /* DynamicTabBarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicTabBarCell.swift; sourceTree = "<group>"; };
 		3842472E200B22B300BE2AEF /* NSConstraintLayoutSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSConstraintLayoutSet.swift; sourceTree = "<group>"; };
 		38424735200B231C00BE2AEF /* EmotionReaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionReaderViewController.swift; sourceTree = "<group>"; };
-		38424737200B23C200BE2AEF /* EmotionModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = EmotionModel.mlmodel; sourceTree = "<group>"; };
+		3842473D200B365800BE2AEF /* EmotionModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = EmotionModel.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +76,7 @@
 			children = (
 				3842470D200AC50B00BE2AEF /* AppDelegate.swift */,
 				3842470E200AC50B00BE2AEF /* Assets.xcassets */,
-				38424737200B23C200BE2AEF /* EmotionModel.mlmodel */,
+				3842473D200B365800BE2AEF /* EmotionModel.mlmodel */,
 				3842471F200AC5EA00BE2AEF /* SmileView.swift */,
 				3842471D200AC5EA00BE2AEF /* CheckmarkView.swift */,
 				3842471B200AC52900BE2AEF /* Controllers */,
@@ -217,7 +217,7 @@
 				38424731200B22B300BE2AEF /* DynamicTabBar.swift in Sources */,
 				38424720200AC5EA00BE2AEF /* CheckmarkView.swift in Sources */,
 				38424713200AC50B00BE2AEF /* AppDelegate.swift in Sources */,
-				38424738200B23C200BE2AEF /* EmotionModel.mlmodel in Sources */,
+				3842473E200B365800BE2AEF /* EmotionModel.mlmodel in Sources */,
 				38424733200B22B300BE2AEF /* NSConstraintLayoutSet.swift in Sources */,
 				3842472F200B22B300BE2AEF /* UIView+AutoLayout.swift in Sources */,
 				38424722200AC5EA00BE2AEF /* SmileView.swift in Sources */,

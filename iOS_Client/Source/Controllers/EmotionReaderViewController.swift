@@ -14,22 +14,16 @@ class EmotionReaderViewController: UIViewController {
     
     var emotionModel = EmotionModel()
     
-    var currentEmotion: Emotion = .unknown {
-        didSet {
-            subtitleLabel.text = currentEmotion.rawValue.capitalized
-        }
-    }
+    var currentEmotion: Emotion = .unknown
     
-    var emotionProbabilities: [Emotion:Float] = [
+    let threshhold: Double = 0.7
+    
+    var emotionProbabilities: [Emotion:NSNumber] = [
         .happy:0,
         .sad:0,
         .angry:0,
         .surprised:0
-        ] {
-        didSet {
-            tableView.reloadData()
-        }
-    }
+        ]
     
     var faceTrackingConfig: ARFaceTrackingConfiguration {
         let configuration = ARFaceTrackingConfiguration()
@@ -81,6 +75,7 @@ class EmotionReaderViewController: UIViewController {
         
         title = "Emotion Reader"
         view.backgroundColor = .white
+        view.addSubview(sceneView)
         view.addSubview(titleLabel)
         view.addSubview(subtitleLabel)
         view.addSubview(tableView)
@@ -119,8 +114,44 @@ extension EmotionReaderViewController: ARSCNViewDelegate {
     
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
         
-//        guard let faceAnchor = anchor as? ARFaceAnchor else { return }
+        guard let faceAnchor = anchor as? ARFaceAnchor else { return }
+        let blendShapes = faceAnchor.blendShapes
         
+        let sortedKeys = Array(blendShapes.keys).sorted { (lhs, rhs) -> Bool in
+            return lhs.rawValue < rhs.rawValue
+        } // ["A", "D", "Z"]
+        
+        print(sortedKeys.map { return $0.rawValue } )
+        
+        let mlInputArray = try! MLMultiArray(shape: [51], dataType: .double)
+        
+        let valueArray: [NSNumber] = sortedKeys.map { blendShapes[$0]! }
+        valueArray.enumerated().forEach { (offset, element) in
+            mlInputArray[offset] = element
+        }
+        let emotionModelInput = EmotionModelInput(input1: mlInputArray)
+        let prediction = try! emotionModel.prediction(input: emotionModelInput)
+        
+        // order: happy, sad, angry, surprised
+        emotionProbabilities[.happy] = prediction.output1[0]
+        emotionProbabilities[.sad] = prediction.output1[1]
+        emotionProbabilities[.angry] = prediction.output1[2]
+        emotionProbabilities[.surprised] = prediction.output1[3]
+        
+        let highestSet = emotionProbabilities.sorted(by: { (lhs, rhs) -> Bool in
+            return lhs.value.doubleValue > rhs.value.doubleValue
+        })[0]
+        
+        if highestSet.value.doubleValue >= threshhold {
+            currentEmotion = highestSet.key
+        } else {
+            currentEmotion = .unknown
+        }
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+            self.subtitleLabel.text = self.currentEmotion.rawValue.capitalized
+        }
     }
 }
 
@@ -134,7 +165,7 @@ extension EmotionReaderViewController: UITableViewDataSource, UITableViewDelegat
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
         
         let emotion = Array(emotionProbabilities.keys)[indexPath.row]
-        let probability = Array(emotionProbabilities.values)[indexPath.row]
+        let probability = Array(emotionProbabilities.values)[indexPath.row].doubleValue
         
         cell.textLabel?.text = emotion.rawValue.capitalized
         cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
@@ -143,10 +174,10 @@ extension EmotionReaderViewController: UITableViewDataSource, UITableViewDelegat
         
         if currentEmotion == emotion {
             cell.detailTextLabel?.textColor = .green
-        } else if probability < 0.25 {
-            cell.detailTextLabel?.textColor = .red
-        } else {
+        } else if probability < threshhold && probability > 0.25 {
             cell.detailTextLabel?.textColor = .orange
+        } else {
+            cell.detailTextLabel?.textColor = .red
         }
         
         return cell
