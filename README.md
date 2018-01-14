@@ -16,7 +16,7 @@ platforms tracking user emotions to manipulate the content that gets shown to th
 
 ## Demo
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/yc8onq_Diak" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+[![Watch the video](https://github.com/nwhacks-loki/loki/blob/master/loki-ios/Source/Assets.xcassets/app_logo.imageset/app_logo.png&raw=true)](https://www.youtube.com/embed/yc8onq_Diak)
 
 ## Usage
 
