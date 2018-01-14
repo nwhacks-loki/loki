@@ -10,6 +10,9 @@
 iOS_Client/build/
 iOS_Client/DerivedData/
 
+#ML models
+*.h5
+
 ## Various settings
 *.pbxuser
 !default.pbxuser
