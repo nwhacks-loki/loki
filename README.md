@@ -9,6 +9,11 @@ content that gets loaded into the news feed.
 We were inspired to build Loki to illustrate the plausibility of social media
 platforms tracking user emotions to manipulate the content that gets shown to them.
 
+## Screenshots
+
+![Screenshots](images/loki-screenshots.png?raw=true "Screenshots")
+
+
 ## Usage
 
 Running the backend server:
@@ -20,6 +25,6 @@ $ pip install -r requirements.txt
 $ python app.py
 ```
 
-## TechStack
+## Tech Stack
 
-![TechStack](./docs/nwHacks_Loki_Stack.png?raw=true "TechStack")
+![TechStack](images/nwHacks_Loki_Stack.png?raw=true "TechStack")
