@@ -35,6 +35,8 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Track your face! (just kidding...maybe)</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Track your face! (just kidding...maybe)</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>

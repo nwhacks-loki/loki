@@ -1,6 +1,6 @@
 //
-//  UIView+AutoLayout.swift
-//  DynamicTabBarController
+//  UIView+Autolayout.swift
+//  AlertKit
 //
 //  Copyright © 2017 Nathan Tannar.
 //
@@ -22,7 +22,7 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 //
-//  Created by Nathan Tannar on 10/28/17.
+//  Created by Nathan Tannar on 2/12/17.
 //
 
 import UIKit
@@ -30,71 +30,25 @@ import UIKit
 extension UIView {
     
     func fillSuperview() {
+        
         guard let superview = self.superview else { return }
         translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            leftAnchor.constraint(equalTo: superview.leftAnchor),
-            rightAnchor.constraint(equalTo: superview.rightAnchor),
-            topAnchor.constraint(equalTo: superview.topAnchor),
-            bottomAnchor.constraint(equalTo: superview.bottomAnchor)
-        ])
-    }
-
-    @discardableResult
-    func addConstraints(_ top: NSLayoutYAxisAnchor? = nil, left: NSLayoutXAxisAnchor? = nil, bottom: NSLayoutYAxisAnchor? = nil, right: NSLayoutXAxisAnchor? = nil, edgeInsets: UIEdgeInsets = .zero, widthConstant: CGFloat = 0, heightConstant: CGFloat = 0) -> [NSLayoutConstraint] {
-        
-        guard self.superview != nil else { return [] }
-        translatesAutoresizingMaskIntoConstraints = false
-        
-        var constraints = [NSLayoutConstraint]()
-        
-        if let top = top {
-            let constraint = topAnchor.constraint(equalTo: top, constant: edgeInsets.top)
-            constraint.identifier = "top"
-            constraints.append(constraint)
-        }
-        
-        if let left = left {
-            let constraint = leftAnchor.constraint(equalTo: left, constant: edgeInsets.left)
-            constraint.identifier = "left"
-            constraints.append(constraint)
-        }
-        
-        if let bottom = bottom {
-            let constraint = bottomAnchor.constraint(equalTo: bottom, constant: -edgeInsets.bottom)
-            constraint.identifier = "bottom"
-            constraints.append(constraint)
-        }
-        
-        if let right = right {
-            let constraint = rightAnchor.constraint(equalTo: right, constant: -edgeInsets.right)
-            constraint.identifier = "right"
-            constraints.append(constraint)
-        }
-        
-        if widthConstant > 0 {
-            let constraint = widthAnchor.constraint(equalToConstant: widthConstant)
-            constraint.identifier = "width"
-            constraints.append(constraint)
-        }
-        
-        if heightConstant > 0 {
-            let constraint = heightAnchor.constraint(equalToConstant: heightConstant)
-            constraint.identifier = "height"
-            constraints.append(constraint)
-        }
-        
-        NSLayoutConstraint.activate(constraints)
-        return constraints
+        leftAnchor.constraint(equalTo: superview.leftAnchor).isActive = true
+        rightAnchor.constraint(equalTo: superview.rightAnchor).isActive = true
+        topAnchor.constraint(equalTo: superview.topAnchor).isActive = true
+        bottomAnchor.constraint(equalTo: superview.bottomAnchor).isActive = true
     }
     
-    func removeAllConstraints() {
-        constraints.forEach { removeConstraint($0) }
-    }
-    
-    @discardableResult
-    func anchor(_ top: NSLayoutYAxisAnchor? = nil, left: NSLayoutXAxisAnchor? = nil, bottom: NSLayoutYAxisAnchor? = nil, right: NSLayoutXAxisAnchor? = nil, insets: UIEdgeInsets = .zero, widthConstant: CGFloat = 0, heightConstant: CGFloat = 0) -> [NSLayoutConstraint] {
-        return anchor(top, left: left, bottom: bottom, right: right, topConstant: insets.top, leftConstant: insets.left, bottomConstant: insets.bottom, rightConstant: insets.right, widthConstant: widthConstant, heightConstant: heightConstant)
+    func anchorAspectRatio() {
+        let aspectRatioConstraint = NSLayoutConstraint(item: self,
+                                                       attribute: .height,
+                                                       relatedBy: .equal,
+                                                       toItem: self,
+                                                       attribute: .width,
+                                                       multiplier: 1,
+                                                       constant: 0)
+        
+        self.addConstraint(aspectRatioConstraint)
     }
     
     @discardableResult
@@ -147,7 +101,7 @@ extension UIView {
         
         translatesAutoresizingMaskIntoConstraints = false
         if let anchor = superview?.centerXAnchor {
-            NSLayoutConstraint.activate([centerXAnchor.constraint(equalTo: anchor, constant: constant)])
+            centerXAnchor.constraint(equalTo: anchor, constant: constant).isActive = true
         }
     }
     
@@ -155,12 +109,37 @@ extension UIView {
         
         translatesAutoresizingMaskIntoConstraints = false
         if let anchor = superview?.centerYAnchor {
-            NSLayoutConstraint.activate([centerYAnchor.constraint(equalTo: anchor, constant: constant)])
+            centerYAnchor.constraint(equalTo: anchor, constant: constant).isActive = true
         }
     }
     
-    func anchorCenterSuperview() {
-        anchorCenterXToSuperview()
+    func anchorCenterToSuperview() {
         anchorCenterYToSuperview()
+        anchorCenterXToSuperview()
+    }
+    
+    func constraint(withIdentifier identifier: String) -> NSLayoutConstraint? {
+        let constraints = self.constraints.filter { $0.identifier == identifier }
+        return constraints.first
+    }
+    
+    func anchorWidthToItem(_ item: UIView) {
+        let widthConstraint = widthAnchor.constraint(equalTo: item.widthAnchor, multiplier: 1)
+        widthConstraint.isActive = true
+    }
+    
+    func anchorHeightToItem(_ item: UIView) {
+        let widthConstraint = heightAnchor.constraint(equalTo: item.heightAnchor, multiplier: 1)
+        widthConstraint.isActive = true
+    }
+    
+    func removeAllConstraints() {
+        var view: UIView? = self
+        while let currentView = view {
+            currentView.removeConstraints(currentView.constraints.filter {
+                return $0.firstItem as? UIView == self || $0.secondItem as? UIView == self
+            })
+            view = view?.superview
+        }
     }
 }

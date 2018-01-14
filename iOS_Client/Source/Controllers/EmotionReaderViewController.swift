@@ -70,10 +70,20 @@ class EmotionReaderViewController: UIViewController {
         return tableView
     }()
     
+    // MARK: - Initialization
+    
+    public init() {
+        super.init(nibName: nil, bundle: nil)
+        title = "CoreML Test"
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Emotion Reader"
         view.backgroundColor = .white
         view.addSubview(sceneView)
         view.addSubview(titleLabel)
@@ -84,7 +94,7 @@ class EmotionReaderViewController: UIViewController {
         titleLabel.anchorCenterYToSuperview(constant: -200)
         subtitleLabel.anchorCenterXToSuperview()
         subtitleLabel.anchor(titleLabel.bottomAnchor)
-        tableView.anchor(subtitleLabel.bottomAnchor, left: view.safeAreaLayoutGuide.leftAnchor, bottom: view.bottomAnchor, right: view.safeAreaLayoutGuide.rightAnchor, insets: .zero)
+        tableView.anchor(subtitleLabel.bottomAnchor, left: view.safeAreaLayoutGuide.leftAnchor, bottom: view.bottomAnchor, right: view.safeAreaLayoutGuide.rightAnchor)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -120,8 +130,6 @@ extension EmotionReaderViewController: ARSCNViewDelegate {
         let sortedKeys = Array(blendShapes.keys).sorted { (lhs, rhs) -> Bool in
             return lhs.rawValue < rhs.rawValue
         } // ["A", "D", "Z"]
-        
-        print(sortedKeys.map { return $0.rawValue } )
         
         let mlInputArray = try! MLMultiArray(shape: [51], dataType: .double)
         

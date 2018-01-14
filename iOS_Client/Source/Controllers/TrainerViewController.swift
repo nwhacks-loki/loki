@@ -43,6 +43,7 @@ class TrainerViewController: UIViewController {
  
     public init() {
         super.init(nibName: nil, bundle: nil)
+        title = "CoreML Trainer"
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -54,7 +55,6 @@ class TrainerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "CoreML Trainer"
         view.backgroundColor = .white
         tableView.frame = view.bounds
         view.addSubview(tableView)
@@ -91,19 +91,23 @@ class TrainerViewController: UIViewController {
         pauseCapture()
         
         
-        // Send data to backend here //
-        
         let actionSheet = UIAlertController(title: "Save", message: "What Emotion is this?", preferredStyle: .actionSheet)
         let emotions: [Emotion] = [.happy, .sad, .angry, .surprised]
         emotions.forEach { emotion in
-            let action = UIAlertAction(title: emotion.rawValue, style: .default, handler: { _ in
-                let record = FaceRecord.create(for: emotion, anchors: self.blendShapes)
+            let action = UIAlertAction(title: emotion.rawValue.capitalized, style: .default, handler: { _ in
+                
+                guard let record = FaceRecord.create(for: emotion, anchors: self.blendShapes) else {
+                    Ping(text: "Oops! No FaceRecord Was Captured", style: .danger).show()
+                    return
+                }
                 record.saveInBackground()
+                Ping(text: "Sent FaceRecord Model to Neural Net", style: .info).show()
+                
             })
             actionSheet.addAction(action)
         }
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        present(actionSheet, animated: false, completion: nil)
+        present(actionSheet, animated: true, completion: nil)
     }
     
     func pauseCapture() {

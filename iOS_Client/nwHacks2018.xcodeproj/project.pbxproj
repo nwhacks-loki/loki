@@ -12,17 +12,26 @@
 		38424714200AC50B00BE2AEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3842470E200AC50B00BE2AEF /* Assets.xcassets */; };
 		38424715200AC50B00BE2AEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3842470F200AC50B00BE2AEF /* LaunchScreen.storyboard */; };
 		38424717200AC50B00BE2AEF /* TrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38424712200AC50B00BE2AEF /* TrainerViewController.swift */; };
-		38424720200AC5EA00BE2AEF /* CheckmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3842471D200AC5EA00BE2AEF /* CheckmarkView.swift */; };
 		38424722200AC5EA00BE2AEF /* SmileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3842471F200AC5EA00BE2AEF /* SmileView.swift */; };
 		38424727200AC6A100BE2AEF /* Emotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38424726200AC6A100BE2AEF /* Emotion.swift */; };
 		38424729200AD80800BE2AEF /* FaceRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38424728200AD80800BE2AEF /* FaceRecord.swift */; };
-		3842472F200B22B300BE2AEF /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3842472A200B22B300BE2AEF /* UIView+AutoLayout.swift */; };
 		38424730200B22B300BE2AEF /* DynamicTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3842472B200B22B300BE2AEF /* DynamicTabBarController.swift */; };
 		38424731200B22B300BE2AEF /* DynamicTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3842472C200B22B300BE2AEF /* DynamicTabBar.swift */; };
 		38424732200B22B300BE2AEF /* DynamicTabBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3842472D200B22B300BE2AEF /* DynamicTabBarCell.swift */; };
 		38424733200B22B300BE2AEF /* NSConstraintLayoutSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3842472E200B22B300BE2AEF /* NSConstraintLayoutSet.swift */; };
 		38424736200B231C00BE2AEF /* EmotionReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38424735200B231C00BE2AEF /* EmotionReaderViewController.swift */; };
 		3842473E200B365800BE2AEF /* EmotionModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3842473D200B365800BE2AEF /* EmotionModel.mlmodel */; };
+		38424744200B447100BE2AEF /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3842473F200B447100BE2AEF /* Alert.swift */; };
+		38424745200B447100BE2AEF /* DownloadWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38424740200B447100BE2AEF /* DownloadWheel.swift */; };
+		38424746200B447100BE2AEF /* Ping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38424741200B447100BE2AEF /* Ping.swift */; };
+		38424747200B447100BE2AEF /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38424742200B447100BE2AEF /* Toast.swift */; };
+		38424748200B447100BE2AEF /* DownloadLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38424743200B447100BE2AEF /* DownloadLine.swift */; };
+		3842474C200B448C00BE2AEF /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3842474A200B448C00BE2AEF /* UIColor+Extensions.swift */; };
+		3842474D200B448C00BE2AEF /* UIDevice+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3842474B200B448C00BE2AEF /* UIDevice+Extensions.swift */; };
+		3842474F200B44A100BE2AEF /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3842474E200B44A100BE2AEF /* UIView+AutoLayout.swift */; };
+		38424751200B46A600BE2AEF /* CoreMLSyncViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38424750200B46A600BE2AEF /* CoreMLSyncViewController.swift */; };
+		38424753200B47D800BE2AEF /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38424752200B47D800BE2AEF /* Tools.swift */; };
+		38424757200B487E00BE2AEF /* NSFileManager+Tar.m in Sources */ = {isa = PBXBuildFile; fileRef = 38424756200B487E00BE2AEF /* NSFileManager+Tar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,17 +42,28 @@
 		38424710200AC50B00BE2AEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		38424711200AC50B00BE2AEF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38424712200AC50B00BE2AEF /* TrainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainerViewController.swift; sourceTree = "<group>"; };
-		3842471D200AC5EA00BE2AEF /* CheckmarkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckmarkView.swift; sourceTree = "<group>"; };
 		3842471F200AC5EA00BE2AEF /* SmileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmileView.swift; sourceTree = "<group>"; };
 		38424726200AC6A100BE2AEF /* Emotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emotion.swift; sourceTree = "<group>"; };
 		38424728200AD80800BE2AEF /* FaceRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceRecord.swift; sourceTree = "<group>"; };
-		3842472A200B22B300BE2AEF /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
 		3842472B200B22B300BE2AEF /* DynamicTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicTabBarController.swift; sourceTree = "<group>"; };
 		3842472C200B22B300BE2AEF /* DynamicTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicTabBar.swift; sourceTree = "<group>"; };
 		3842472D200B22B300BE2AEF /* DynamicTabBarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicTabBarCell.swift; sourceTree = "<group>"; };
 		3842472E200B22B300BE2AEF /* NSConstraintLayoutSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSConstraintLayoutSet.swift; sourceTree = "<group>"; };
 		38424735200B231C00BE2AEF /* EmotionReaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionReaderViewController.swift; sourceTree = "<group>"; };
 		3842473D200B365800BE2AEF /* EmotionModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = EmotionModel.mlmodel; sourceTree = "<group>"; };
+		3842473F200B447100BE2AEF /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		38424740200B447100BE2AEF /* DownloadWheel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadWheel.swift; sourceTree = "<group>"; };
+		38424741200B447100BE2AEF /* Ping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ping.swift; sourceTree = "<group>"; };
+		38424742200B447100BE2AEF /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		38424743200B447100BE2AEF /* DownloadLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadLine.swift; sourceTree = "<group>"; };
+		3842474A200B448C00BE2AEF /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		3842474B200B448C00BE2AEF /* UIDevice+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extensions.swift"; sourceTree = "<group>"; };
+		3842474E200B44A100BE2AEF /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
+		38424750200B46A600BE2AEF /* CoreMLSyncViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMLSyncViewController.swift; sourceTree = "<group>"; };
+		38424752200B47D800BE2AEF /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
+		38424754200B487D00BE2AEF /* nwHacks2018-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "nwHacks2018-Bridging-Header.h"; sourceTree = "<group>"; };
+		38424755200B487E00BE2AEF /* NSFileManager+Tar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+Tar.h"; sourceTree = "<group>"; };
+		38424756200B487E00BE2AEF /* NSFileManager+Tar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+Tar.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,8 +99,6 @@
 				3842470D200AC50B00BE2AEF /* AppDelegate.swift */,
 				3842470E200AC50B00BE2AEF /* Assets.xcassets */,
 				3842473D200B365800BE2AEF /* EmotionModel.mlmodel */,
-				3842471F200AC5EA00BE2AEF /* SmileView.swift */,
-				3842471D200AC5EA00BE2AEF /* CheckmarkView.swift */,
 				3842471B200AC52900BE2AEF /* Controllers */,
 				3842471A200AC52500BE2AEF /* Views */,
 				38424719200AC52100BE2AEF /* Models */,
@@ -93,6 +111,7 @@
 		38424718200AC51300BE2AEF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				38424749200B447600BE2AEF /* AlertHUDKit */,
 				38424734200B22B700BE2AEF /* DynamicTabBarController */,
 				3842470F200AC50B00BE2AEF /* LaunchScreen.storyboard */,
 				38424711200AC50B00BE2AEF /* Info.plist */,
@@ -105,6 +124,7 @@
 			children = (
 				38424728200AD80800BE2AEF /* FaceRecord.swift */,
 				38424726200AC6A100BE2AEF /* Emotion.swift */,
+				38424752200B47D800BE2AEF /* Tools.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -112,6 +132,7 @@
 		3842471A200AC52500BE2AEF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3842471F200AC5EA00BE2AEF /* SmileView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -120,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				38424712200AC50B00BE2AEF /* TrainerViewController.swift */,
+				38424750200B46A600BE2AEF /* CoreMLSyncViewController.swift */,
 				38424735200B231C00BE2AEF /* EmotionReaderViewController.swift */,
 				04EE6F2B200B3A6400AF1206 /* PictureFeedViewController.swift */,
 			);
@@ -129,6 +151,10 @@
 		3842471C200AC54100BE2AEF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				3842474E200B44A100BE2AEF /* UIView+AutoLayout.swift */,
+				38424755200B487E00BE2AEF /* NSFileManager+Tar.h */,
+				38424756200B487E00BE2AEF /* NSFileManager+Tar.m */,
+				38424754200B487D00BE2AEF /* nwHacks2018-Bridging-Header.h */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -140,9 +166,22 @@
 				3842472D200B22B300BE2AEF /* DynamicTabBarCell.swift */,
 				3842472B200B22B300BE2AEF /* DynamicTabBarController.swift */,
 				3842472E200B22B300BE2AEF /* NSConstraintLayoutSet.swift */,
-				3842472A200B22B300BE2AEF /* UIView+AutoLayout.swift */,
 			);
 			path = DynamicTabBarController;
+			sourceTree = "<group>";
+		};
+		38424749200B447600BE2AEF /* AlertHUDKit */ = {
+			isa = PBXGroup;
+			children = (
+				3842473F200B447100BE2AEF /* Alert.swift */,
+				38424743200B447100BE2AEF /* DownloadLine.swift */,
+				38424740200B447100BE2AEF /* DownloadWheel.swift */,
+				38424741200B447100BE2AEF /* Ping.swift */,
+				38424742200B447100BE2AEF /* Toast.swift */,
+				3842474A200B448C00BE2AEF /* UIColor+Extensions.swift */,
+				3842474B200B448C00BE2AEF /* UIDevice+Extensions.swift */,
+			);
+			path = AlertHUDKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,6 +216,7 @@
 				TargetAttributes = {
 					384246F9200AC47400BE2AEF = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -218,15 +258,24 @@
 			files = (
 				38424717200AC50B00BE2AEF /* TrainerViewController.swift in Sources */,
 				38424731200B22B300BE2AEF /* DynamicTabBar.swift in Sources */,
-				38424720200AC5EA00BE2AEF /* CheckmarkView.swift in Sources */,
+				38424747200B447100BE2AEF /* Toast.swift in Sources */,
 				04EE6F2C200B3A6400AF1206 /* PictureFeedViewController.swift in Sources */,
+				38424746200B447100BE2AEF /* Ping.swift in Sources */,
+				38424757200B487E00BE2AEF /* NSFileManager+Tar.m in Sources */,
 				38424713200AC50B00BE2AEF /* AppDelegate.swift in Sources */,
 				3842473E200B365800BE2AEF /* EmotionModel.mlmodel in Sources */,
+				38424753200B47D800BE2AEF /* Tools.swift in Sources */,
+				38424748200B447100BE2AEF /* DownloadLine.swift in Sources */,
 				38424733200B22B300BE2AEF /* NSConstraintLayoutSet.swift in Sources */,
-				3842472F200B22B300BE2AEF /* UIView+AutoLayout.swift in Sources */,
+				38424745200B447100BE2AEF /* DownloadWheel.swift in Sources */,
+				3842474F200B44A100BE2AEF /* UIView+AutoLayout.swift in Sources */,
+				3842474C200B448C00BE2AEF /* UIColor+Extensions.swift in Sources */,
+				38424744200B447100BE2AEF /* Alert.swift in Sources */,
+				3842474D200B448C00BE2AEF /* UIDevice+Extensions.swift in Sources */,
 				38424722200AC5EA00BE2AEF /* SmileView.swift in Sources */,
 				38424730200B22B300BE2AEF /* DynamicTabBarController.swift in Sources */,
 				38424732200B22B300BE2AEF /* DynamicTabBarCell.swift in Sources */,
+				38424751200B46A600BE2AEF /* CoreMLSyncViewController.swift in Sources */,
 				38424727200AC6A100BE2AEF /* Emotion.swift in Sources */,
 				38424729200AD80800BE2AEF /* FaceRecord.swift in Sources */,
 				38424736200B231C00BE2AEF /* EmotionReaderViewController.swift in Sources */,
@@ -358,12 +407,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JH5XJ55XGZ;
 				INFOPLIST_FILE = "$(SRCROOT)/Source/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.nathantannar.nwHacks2018;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.nathantannar.nwHacks2018-emotion";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Source/Extensions/nwHacks2018-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -373,12 +427,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JH5XJ55XGZ;
 				INFOPLIST_FILE = "$(SRCROOT)/Source/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.nathantannar.nwHacks2018;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.nathantannar.nwHacks2018-emotion";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Source/Extensions/nwHacks2018-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

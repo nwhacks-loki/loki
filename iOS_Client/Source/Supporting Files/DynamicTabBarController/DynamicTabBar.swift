@@ -139,8 +139,8 @@ final public class DynamicTabBar: UIView {
     
     fileprivate func setupConstraints() {
         
-        collectionView.addConstraints(topAnchor, left: leftAnchor, bottom: bufferView.topAnchor, right: rightAnchor)
-        bufferView.addConstraints(collectionView.bottomAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor)
+        collectionView.anchor(topAnchor, left: leftAnchor, bottom: bufferView.topAnchor, right: rightAnchor)
+        bufferView.anchor(collectionView.bottomAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor)
         
         switch scrollIndicatorPosition {
         case .top:

@@ -77,7 +77,7 @@ class FaceRecord: Codable {
     var eyeBlink_R: Double
     var mouthSmile_L: Double
     
-    class func create(for emotion: Emotion, anchors: [ARFaceAnchor.BlendShapeLocation : NSNumber]) -> FaceRecord {
+    class func create(for emotion: Emotion, anchors: [ARFaceAnchor.BlendShapeLocation : NSNumber]) -> FaceRecord? {
         
         var json = [String:Any]()
         anchors.forEach { (arg) in
@@ -86,9 +86,11 @@ class FaceRecord: Codable {
         }
         json["emotion"] = emotion.rawValue
         
-        let data = try! JSONSerialization.data(withJSONObject: json, options: .sortedKeys)
+        guard let data = try? JSONSerialization.data(withJSONObject: json, options: .sortedKeys) else {
+            return nil
+        }
         let decoder = JSONDecoder()
-        let record = try! decoder.decode(FaceRecord.self, from: data)
+        let record = try? decoder.decode(FaceRecord.self, from: data)
         return record
     }
     
@@ -110,14 +112,8 @@ class FaceRecord: Codable {
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 // there was an error
-                print(error.localizedDescription)
-            } else {
-                if let data = data {
-                    guard let value = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) else { return }
-                    print(value)
-                }
-                
-            }
+                Ping(text: error.localizedDescription, style: .danger).show()
+            } 
         }.resume()
     }
     
