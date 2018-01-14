@@ -14,6 +14,8 @@ class FeedCell: UICollectionViewCell {
         return "FeedCell"
     }
     
+    var imageView = UIImageView()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
