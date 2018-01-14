@@ -1,6 +1,6 @@
-# nwHacks2018
+# Loki
 
-Loki: Identity the emotion of a user (in the background) while they're reading
+Identites the emotion of a user in the background while they're reading
 their "news feed", and adjust the content displayed to the user accordingly.
 
 ## Usage
