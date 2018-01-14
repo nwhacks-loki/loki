@@ -100,32 +100,7 @@ class StatsViewController: UIViewController {
     
     func parseRecords() {
         
-        let recordCount = records.count
-        subtitleLabel.text = "\(recordCount) Records"
         
-        var dataSets: [Emotion:PieChartDataSet] = [
-            .happy : PieChartDataSet(values: [], label: "Happy"),
-            .sad : PieChartDataSet(values: [], label: "Sad"),
-            .angry : PieChartDataSet(values: [], label: "Angry"),
-            .surprised : PieChartDataSet(values: [], label: "Surprised")
-        ]
-        
-        for record in records {
-            
-            let data = try! JSONEncoder().encode(record)
-            let json = try! JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:NSNumber]
-            let mlInputArray = try! MLMultiArray(shape: [51], dataType: .double)
-            let valueArray: [NSNumber] = json.keys.map { json[$0]! }
-        }
-        
-        let entries = (0..<recordCount).map { (i) -> PieChartDataEntry in
-            // IMPORTANT: In a PieChart, no values (Entry) should have the same xIndex (even if from different DataSets), since no values can be drawn above each other.
-            return PieChartDataEntry(value: Double(Randoms.randomInt()),
-                                     label: "",
-                                     icon: nil)
-        }
-        
-        chartView.data = PieChartData(dataSets: dataSets)
 
 //
 //        let mlInputArray = try! MLMultiArray(shape: [51], dataType: .double)
