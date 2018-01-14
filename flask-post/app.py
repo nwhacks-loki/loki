@@ -1,5 +1,6 @@
 import os
 import json
+import datetime
 
 from flask import Flask, request, jsonify
 
@@ -17,9 +18,14 @@ def index():
 @app.route('/post-emotion', methods=['POST'])
 def post_emotion():
     data = request.get_json(silent=True)
-    Emotion.create(data=data)
-    print(json.dumps(data))
-    return jsonify(data)
+
+    if data.get('emotion'):
+        Emotion.create(data=data)
+        print("{}: Recorded {} datapoint.".format(datetime.datetime.now(), data['emotion']))
+        return jsonify(data)
+
+    else:
+        return jsonify({'error': 'invalid data'})
 
 
 if __name__ == '__main__':
