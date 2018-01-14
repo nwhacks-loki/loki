@@ -20,6 +20,6 @@ $ pip install -r requirements.txt
 $ python app.py
 ```
 
-## TecStack
+## TechStack
 
-![TecStack](./docs/nwHacks_Loki_Stack.png?raw=true "TecStack")
+![TechStack](./docs/nwHacks_Loki_Stack.png?raw=true "TechStack")
