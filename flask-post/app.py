@@ -3,6 +3,9 @@ import json
 
 from flask import Flask, request, jsonify
 
+from models import Emotion, db
+
+
 app = Flask(__name__)
 
 
@@ -14,10 +17,14 @@ def index():
 @app.route('/post-emotion', methods=['POST'])
 def post_emotion():
     data = request.get_json(silent=True)
+    Emotion.create(data=data)
     print(json.dumps(data))
     return jsonify(data)
 
 
 if __name__ == '__main__':
+    db.connect()
+    Emotion.create_table(fail_silently=True)
+
     port = int(os.environ.get('PORT', 5001))
     app.run(host='0.0.0.0', port=port)
