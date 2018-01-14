@@ -13,6 +13,14 @@ sys.path.insert(0, '../data-backend')
 from models import Emotion
 
 
+EMOTIONS = {
+    'happy': 0,
+    'sad': 1,
+    'angry': 2,
+    'surprised': 3,
+}
+
+
 class Computation:
     def feedForwardNetwork(self, datapoint, hidden_neurons_1, hidden_neurons_2, outputClasses):
         model = Sequential()
@@ -28,15 +36,13 @@ class Computation:
         dimensions = []
         for face in data:
             faceData = []
-            for _, value in face.iteritems():
-                # value.replace('happy', 0).replace('sad', 1).replace('anger', 2).replace('surprised', 3)
-                value = 0 if value == 'happy' else value
-                value = 1 if value == 'sad' else value
-                value = 2 if value == 'angry' else value
-                value = 3 if value == 'surprised' else value
-                faceData.append(value)
-            emotion.append(faceData[0])
-            dimensions.append(faceData[1:])
+            for key, value in sorted(face.iteritems()):
+                if key == 'emotion':
+                    emotion.append(EMOTIONS[value])
+                else:
+                    faceData.append(value)
+
+            dimensions.append(faceData)
         oneHotOutput = np.eye(4)[emotion]
         input = np.asarray(dimensions)
         return input, oneHotOutput
