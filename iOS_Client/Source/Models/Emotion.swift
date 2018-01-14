@@ -17,4 +17,7 @@ enum Emotion: String, Codable {
     case surprised = "surprised"
     case unknown = "unknown"
 
+    static func all() -> [Emotion] {
+        return [.happy, .sad, .angry, .surprised]
+    }
 }

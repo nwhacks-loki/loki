@@ -92,8 +92,7 @@ class TrainerViewController: UIViewController {
         
         
         let actionSheet = UIAlertController(title: "Save", message: "What Emotion is this?", preferredStyle: .actionSheet)
-        let emotions: [Emotion] = [.happy, .sad, .angry, .surprised]
-        emotions.forEach { emotion in
+        Emotion.all().forEach { emotion in
             let action = UIAlertAction(title: emotion.rawValue.capitalized, style: .default, handler: { _ in
                 
                 guard let record = FaceRecord.create(for: emotion, anchors: self.blendShapes) else {

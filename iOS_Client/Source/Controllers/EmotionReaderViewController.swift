@@ -12,32 +12,13 @@ import CoreML
 
 class EmotionReaderViewController: UIViewController {
     
-    var emotionModel: EmotionModel = {
-        // Look for sync'd model
-        guard let appSupportDirectory = try? FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: false) else {
-            // Fallback
-            print("falling back on local model")
-            return EmotionModel()
-        }
-        let expectedURL = appSupportDirectory.appendingPathComponent("EmotionModel.mlmodel")
-        guard let model = try? EmotionModel(contentsOf: expectedURL) else {
-            // Fallback
-            print("falling back on local model")
-            return EmotionModel()
-        }
-        return model
-    }()
+    var emotionModel = EmotionModel()
     
     var currentEmotion: Emotion = .unknown
     
     let threshhold: Double = 0.7
     
-    var emotionProbabilities: [Emotion:NSNumber] = [
-        .happy:0,
-        .sad:0,
-        .angry:0,
-        .surprised:0
-    ]
+    var emotionProbabilities: [Emotion:NSNumber] = [:]
     
     var faceTrackingConfig: ARFaceTrackingConfiguration {
         let configuration = ARFaceTrackingConfiguration()
@@ -109,6 +90,10 @@ class EmotionReaderViewController: UIViewController {
         subtitleLabel.anchorCenterXToSuperview()
         subtitleLabel.anchor(titleLabel.bottomAnchor)
         tableView.anchor(subtitleLabel.bottomAnchor, left: view.safeAreaLayoutGuide.leftAnchor, bottom: view.bottomAnchor, right: view.safeAreaLayoutGuide.rightAnchor)
+        
+        Emotion.all().forEach {
+            emotionProbabilities[$0] = 0
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
