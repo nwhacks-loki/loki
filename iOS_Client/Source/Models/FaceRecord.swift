@@ -107,8 +107,6 @@ class FaceRecord: Codable {
         request.httpMethod = "POST"
         request.httpBody = data
         
-        print("trying to save")
-        
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 // there was an error

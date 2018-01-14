@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UINavigationController(rootViewController: TrainerViewController()),
             UINavigationController(rootViewController: EmotionReaderViewController()),
             UINavigationController(rootViewController: CoreMLSyncViewController()),
+            UINavigationController(rootViewController: StatsViewController()),
             UINavigationController(rootViewController: PictureFeedViewController())
         ]
             
