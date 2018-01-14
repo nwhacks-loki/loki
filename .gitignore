@@ -4,6 +4,7 @@
 
 .DS_Store
 .env
+*.pyc
 
 ## Build generated
 iOS_Client/build/
