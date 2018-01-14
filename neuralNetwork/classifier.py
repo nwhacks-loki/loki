@@ -36,7 +36,7 @@ class Computation:
         dimensions = []
         for face in data:
             faceData = []
-            for key, value in sorted(face.iteritems()):
+            for key, value in sorted(face.items()):
                 if key == 'emotion':
                     emotion.append(EMOTIONS[value])
                 else:
@@ -87,7 +87,7 @@ class Computation:
         print("")
 
 
-if __name__ == '__main__':
+def train_model(output_mlmodel=False):
     # Create new Object
     computation = Computation()
 
@@ -95,24 +95,28 @@ if __name__ == '__main__':
     dbData = computation.loadDBData()
 
     # Preprocess the data for the neural network
-    input, output = computation.prepareData(dbData)
+    X, y = computation.prepareData(dbData)
 
     # Generate the neural network topology
     model = computation.feedForwardNetwork(51,40, 30,4)
 
     # Train the model with the preprocessed data
-    trainingResult = model.fit(input, output, batch_size=10, epochs=100)
+    trainingResult = model.fit(X, y, batch_size=10, epochs=100)
 
     # Save the trained model
-    model.save("./model.h5")
+    model.save("model.h5")
+    print("Saved trained Keras model to `model.h5`.")
 
     # Define the test case
-    computation.testDatapoint(6, model, input, output)
+    computation.testDatapoint(6, model, X, y)
 
     # Comment in when running on the server
     # Save the neural network as a iPhone compatible ML model
-    '''
-    iphone_model = coremltools.converters.keras.convert("./model.h5")
-    iphone_model.save('iPhoneModel.mlmodel')
-    '''
+    if output_mlmodel:
+        iphone_model = coremltools.converters.keras.convert("./model.h5")
+        iphone_model.save('model.mlmodel')
+        print("Saved CoreML model to `model.mlmodel`.")
 
+
+if __name__ == '__main__':
+    train_model()
