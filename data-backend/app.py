@@ -47,7 +47,7 @@ def serve_model():
         filename_or_fp='model.mlmodel',
         mimetype='application/octet-stream',
         as_attachment=True,
-        attachment_filename='model.mlmodel',
+        attachment_filename='EmotionModel.mlmodel',
     )
 
 
