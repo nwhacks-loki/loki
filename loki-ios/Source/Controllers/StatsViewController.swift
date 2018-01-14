@@ -116,7 +116,7 @@ extension StatsViewController: UITableViewDataSource, UITableViewDelegate {
         
         cell.textLabel?.text = emotion.rawValue.capitalized
         cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
-        cell.detailTextLabel?.text = "\(Double(round(1000*percent)/1000))%" // 3 decimal places
+        cell.detailTextLabel?.text = "\(Double(round(1000*percent)/1000)*100)%" // 3 decimal places
         cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         
         return cell

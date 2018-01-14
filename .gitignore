@@ -5,6 +5,7 @@
 .DS_Store
 .env
 *.pyc
+.ipynb_checkpoints
 flask-backend/*.mlmodel
 
 ## Build generated
