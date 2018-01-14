@@ -8,27 +8,8 @@
 
 import UIKit
 import CoreML
-import Charts
 
 class StatsViewController: UIViewController {
-    
-    var emotionModel: EmotionModel = {
-        // Look for sync'd model
-        guard let appSupportDirectory = try? FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: false) else {
-            // Fallback
-            print("falling back on local model")
-            return EmotionModel()
-        }
-        let expectedURL = appSupportDirectory.appendingPathComponent("EmotionModel.mlmodel")
-        guard let model = try? EmotionModel(contentsOf: expectedURL) else {
-            // Fallback
-            print("falling back on local model")
-            return EmotionModel()
-        }
-        return model
-    }()
-    
-    var records = [FaceRecord]() { didSet { DispatchQueue.main.async { self.parseRecords() } } }
     
     let titleLabel: UILabel = {
         let label = UILabel()
@@ -47,10 +28,19 @@ class StatsViewController: UIViewController {
         return label
     }()
     
-    lazy var chartView: PieChartView = {
-        let chartView = PieChartView()
-        return chartView
+    lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.tableFooterView = UIView()
+        tableView.isUserInteractionEnabled = false
+        tableView.separatorStyle = .none
+        return tableView
     }()
+    
+    var records = [FaceRecord]() { didSet { DispatchQueue.main.async { self.parseRecords() } } }
+    
+    var emotionDistribution: [Emotion:Double] = [:]
     
     // MARK: - Initialization
     
@@ -67,18 +57,15 @@ class StatsViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .white
-        view.addSubview(chartView)
         view.addSubview(titleLabel)
         view.addSubview(subtitleLabel)
+        view.addSubview(tableView)
         
         titleLabel.anchorCenterXToSuperview()
         titleLabel.anchorCenterYToSuperview(constant: -200)
         subtitleLabel.anchorCenterXToSuperview()
         subtitleLabel.anchor(titleLabel.bottomAnchor)
-        
-        chartView.anchorCenterXToSuperview()
-        chartView.anchorCenterYToSuperview(constant: 100)
-        chartView.anchor(left: view.safeAreaLayoutGuide.leftAnchor, bottom: nil, right: view.safeAreaLayoutGuide.rightAnchor, topConstant: 0, leftConstant: 16, bottomConstant: 0, rightConstant: 16, widthConstant: 0, heightConstant: 400)
+        tableView.anchor(subtitleLabel.bottomAnchor, left: view.safeAreaLayoutGuide.leftAnchor, bottom: view.bottomAnchor, right: view.safeAreaLayoutGuide.rightAnchor)
         
     }
     
@@ -100,18 +87,45 @@ class StatsViewController: UIViewController {
     
     func parseRecords() {
         
+        let recordCount = records.count
+        subtitleLabel.text = "\(recordCount) Records"
+        emotionDistribution.removeAll(keepingCapacity: true)
         
-
-//
-//        let mlInputArray = try! MLMultiArray(shape: [51], dataType: .double)
-//        let valueArray: [NSNumber] = sortedKeys.map { blendShapes[$0]! }
-//        valueArray.enumerated().forEach { (offset, element) in
-//            mlInputArray[offset] = element
-//        }
-//        let emotionModelInput = EmotionModelInput(input1: mlInputArray)
-//        let prediction = try! emotionModel.prediction(input: emotionModelInput)
+        for record in records {
+            let currentValue = emotionDistribution[record.emotion] ?? 0
+            emotionDistribution[record.emotion] = currentValue + 1
+        }
+        
+        tableView.reloadData()
     }
     
 }
+
+
+extension StatsViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return emotionDistribution.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
+        
+        let emotion = Array(emotionDistribution.keys)[indexPath.row]
+        let percent = Array(emotionDistribution.values)[indexPath.row] / Double(records.count)
+        
+        cell.textLabel?.text = emotion.rawValue.capitalized
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
+        cell.detailTextLabel?.text = "\(Double(round(1000*percent)/1000))%" // 3 decimal places
+        cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 20, weight: .medium)
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
 
 
