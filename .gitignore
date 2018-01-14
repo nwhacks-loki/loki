@@ -5,8 +5,8 @@
 .DS_Store
 
 ## Build generated
-build/
-DerivedData/
+iOS_Client/build/
+iOS_Client/DerivedData/
 
 ## Various settings
 *.pbxuser

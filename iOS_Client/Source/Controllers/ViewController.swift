@@ -11,6 +11,24 @@ import ARKit
 
 class ViewController: UIViewController {
     
+    var faceTrackingConfig: ARFaceTrackingConfiguration {
+        let configuration = ARFaceTrackingConfiguration()
+        configuration.isLightEstimationEnabled = true
+        return configuration
+    }
+    
+    lazy var sceneView: ARSCNView = {
+        let sceneView = ARSCNView(frame: view.bounds)
+        sceneView.automaticallyUpdatesLighting = true
+        sceneView.isHidden = true
+        sceneView.delegate = self
+        return sceneView
+    }()
+    
+    var session: ARSession {
+        return sceneView.session
+    }
+    
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.dataSource = self
@@ -35,30 +53,49 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title "Emotion Tracker"
         view.backgroundColor = .white
         tableView.frame = view.bounds
         view.addSubview(tableView)
+        view.addSubview(sceneView)
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .play,
+                                                           target: self,
+                                                           action: #selector(resumeCapture))
+        navigationItem.leftBarButtonItem?.isEnabled = false
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .camera,
+                                                            target: self,
+                                                            action: #selector(captureCurrentEmption))
     }
     
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        configureFaceTracking()
+        resumeCapture()
+    }
+    
+    // MARK: - User Actions
+    
+    @objc
+    func captureCurrentEmption() {
+        
+        playChime()
+        session.pause()
+        navigationItem.rightBarButtonItem?.isEnabled = false
+        navigationItem.leftBarButtonItem?.isEnabled = true
+    }
+    
+    @objc
+    func resumeCapture() {
+        
+        session.run(faceTrackingConfig, options: [.resetTracking, .removeExistingAnchors])
+        navigationItem.rightBarButtonItem?.isEnabled = true
+        navigationItem.leftBarButtonItem?.isEnabled = false
     }
     
     // MARK: - ARKit
-    
-    private func configureFaceTracking() {
-        let configuration = ARFaceTrackingConfiguration()
-        configuration.isLightEstimationEnabled = true
-        let sceneView = ARSCNView(frame: view.bounds)
-        sceneView.automaticallyUpdatesLighting = true
-        sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
-        sceneView.isHidden = true
-        sceneView.delegate = self
-        view.addSubview(sceneView)
-    }
-    
+  
     func playChime() {
         AudioServicesPlaySystemSound(1075)
     }
@@ -91,5 +128,9 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         cell.textLabel?.text = Array(blendShapes.keys)[indexPath.row].rawValue
         cell.detailTextLabel?.text = "\(Array(blendShapes.values)[indexPath.row])"
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
