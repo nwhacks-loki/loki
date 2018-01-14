@@ -31,4 +31,4 @@ $ python app.py
 
 ## Tech Stack
 
-![TechStack](images/nwHacks_Loki_Stack.png?raw=true "TechStack")
+![TechStack](images/loki-tech-stack.png?raw=true "TechStack")
