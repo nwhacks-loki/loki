@@ -6,6 +6,7 @@
 .env
 *.pyc
 .ipynb_checkpoints
+neuralNetwork/
 flask-backend/*.mlmodel
 
 ## Build generated

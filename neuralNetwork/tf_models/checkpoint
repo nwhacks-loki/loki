@@ -1,2 +1,0 @@
-model_checkpoint_path: "tf_model-100"
-all_model_checkpoint_paths: "tf_model-100"

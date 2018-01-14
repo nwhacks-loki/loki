@@ -1,3 +1,0 @@
-embeddings {
-  metadata_path: "./labels"
-}
