@@ -1,4 +1,4 @@
-# Loki
+![Banner](images/loki_banner.png?raw=true "Banner")
 
 Loki presents a news feed to the user much like other popular social networking
 apps. However, in the background, it uses iOS' ARKit to gather the user's facial
