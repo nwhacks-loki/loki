@@ -14,6 +14,10 @@ platforms tracking user emotions to manipulate the content that gets shown to th
 ![Screenshots](images/loki-screenshots.png?raw=true "Screenshots")
 
 
+## Demo
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/yc8onq_Diak" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
 ## Usage
 
 Running the backend server:
