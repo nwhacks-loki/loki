@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		04EE6F2C200B3A6400AF1206 /* PictureFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE6F2B200B3A6400AF1206 /* PictureFeedViewController.swift */; };
+		381CD772200BC822002FFD61 /* EmotionModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 381CD771200BC821002FFD61 /* EmotionModel.mlmodel */; };
 		38424713200AC50B00BE2AEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3842470D200AC50B00BE2AEF /* AppDelegate.swift */; };
 		38424714200AC50B00BE2AEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3842470E200AC50B00BE2AEF /* Assets.xcassets */; };
 		38424715200AC50B00BE2AEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3842470F200AC50B00BE2AEF /* LaunchScreen.storyboard */; };
@@ -19,7 +20,6 @@
 		38424732200B22B300BE2AEF /* DynamicTabBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3842472D200B22B300BE2AEF /* DynamicTabBarCell.swift */; };
 		38424733200B22B300BE2AEF /* NSConstraintLayoutSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3842472E200B22B300BE2AEF /* NSConstraintLayoutSet.swift */; };
 		38424736200B231C00BE2AEF /* EmotionReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38424735200B231C00BE2AEF /* EmotionReaderViewController.swift */; };
-		3842473E200B365800BE2AEF /* EmotionModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3842473D200B365800BE2AEF /* EmotionModel.mlmodel */; };
 		38424744200B447100BE2AEF /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3842473F200B447100BE2AEF /* Alert.swift */; };
 		38424745200B447100BE2AEF /* DownloadWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38424740200B447100BE2AEF /* DownloadWheel.swift */; };
 		38424746200B447100BE2AEF /* Ping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38424741200B447100BE2AEF /* Ping.swift */; };
@@ -54,6 +54,7 @@
 
 /* Begin PBXFileReference section */
 		04EE6F2B200B3A6400AF1206 /* PictureFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureFeedViewController.swift; sourceTree = "<group>"; };
+		381CD771200BC821002FFD61 /* EmotionModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = EmotionModel.mlmodel; sourceTree = "<group>"; };
 		384246FA200AC47400BE2AEF /* nwHacks2018.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nwHacks2018.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3842470D200AC50B00BE2AEF /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3842470E200AC50B00BE2AEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -67,7 +68,6 @@
 		3842472D200B22B300BE2AEF /* DynamicTabBarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicTabBarCell.swift; sourceTree = "<group>"; };
 		3842472E200B22B300BE2AEF /* NSConstraintLayoutSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSConstraintLayoutSet.swift; sourceTree = "<group>"; };
 		38424735200B231C00BE2AEF /* EmotionReaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionReaderViewController.swift; sourceTree = "<group>"; };
-		3842473D200B365800BE2AEF /* EmotionModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = EmotionModel.mlmodel; sourceTree = "<group>"; };
 		3842473F200B447100BE2AEF /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		38424740200B447100BE2AEF /* DownloadWheel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadWheel.swift; sourceTree = "<group>"; };
 		38424741200B447100BE2AEF /* Ping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ping.swift; sourceTree = "<group>"; };
@@ -119,7 +119,7 @@
 			children = (
 				3842470D200AC50B00BE2AEF /* AppDelegate.swift */,
 				3842470E200AC50B00BE2AEF /* Assets.xcassets */,
-				3842473D200B365800BE2AEF /* EmotionModel.mlmodel */,
+				381CD771200BC821002FFD61 /* EmotionModel.mlmodel */,
 				3842471B200AC52900BE2AEF /* Controllers */,
 				3842471A200AC52500BE2AEF /* Views */,
 				38424719200AC52100BE2AEF /* Models */,
@@ -290,7 +290,6 @@
 				38424713200AC50B00BE2AEF /* AppDelegate.swift in Sources */,
 				3879A971200B6E4200DAA6CD /* Lorem.swift in Sources */,
 				3879A96F200B697500DAA6CD /* Footer.swift in Sources */,
-				3842473E200B365800BE2AEF /* EmotionModel.mlmodel in Sources */,
 				38424748200B447100BE2AEF /* DownloadLine.swift in Sources */,
 				3879A975200B6EE000DAA6CD /* Date+Extensions.swift in Sources */,
 				38424733200B22B300BE2AEF /* NSConstraintLayoutSet.swift in Sources */,
@@ -298,6 +297,7 @@
 				3842474F200B44A100BE2AEF /* UIView+AutoLayout.swift in Sources */,
 				3879A961200B629D00DAA6CD /* StatsViewController.swift in Sources */,
 				38424744200B447100BE2AEF /* Alert.swift in Sources */,
+				381CD772200BC822002FFD61 /* EmotionModel.mlmodel in Sources */,
 				3842474D200B448C00BE2AEF /* UIDevice+Extensions.swift in Sources */,
 				3879A95F200B627300DAA6CD /* FeedCell.swift in Sources */,
 				3879A96D200B683000DAA6CD /* Header.swift in Sources */,
