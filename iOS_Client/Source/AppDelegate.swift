@@ -41,6 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tabBarController = DynamicTabBarController(viewControllers: viewControllers)
         tabBarController.tabBar.activeTintColor = facebookBlue
         tabBarController.tabBar.backgroundColor = UIColor(hex: "dfe3ee")
+        tabBarController.view.backgroundColor = UIColor(hex: "dfe3ee")
         
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()

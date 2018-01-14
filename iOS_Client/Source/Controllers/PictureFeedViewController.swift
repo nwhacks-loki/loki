@@ -68,13 +68,14 @@ class PictureFeedViewController: UICollectionViewController {
         collectionView?.register(FeedCell.self, forCellWithReuseIdentifier: FeedCell.reuseIdentifier)
         
         let searchBar = UISearchBar()
-        searchBar.tintColor = .red
-        
-        
+        searchBar.placeholder = "Search"
+        searchBar.setStyleColor(UIColor(hex: "3b5998").darker(by: 10))
+        searchBar.isUserInteractionEnabled = false
+        searchBar.heightAnchor.constraint(equalToConstant: 44).isActive = true
         navigationItem.titleView = searchBar
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .camera, target: nil, action: nil)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "fb_messenger"), style: .plain, target: nil, action: nil)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -182,6 +183,49 @@ extension PictureFeedViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.width + 130)
+        return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.width + 140)
+    }
+}
+
+public extension UISearchBar {
+    
+    public func setStyleColor(_ color: UIColor) {
+        tintColor = color.isLight ? .black : .white
+        
+        guard let tf = (value(forKey: "searchField") as? UITextField) else { return }
+        let textFieldInsideSearchBarLabel = tf.value(forKey: "placeholderLabel") as? UILabel
+        textFieldInsideSearchBarLabel?.textColor = color.isLight ? .black : .white
+        
+        tf.layer.cornerRadius = 18
+        tf.clipsToBounds = true
+        tf.textColor = color.isLight ? .black : .white
+        tf.backgroundColor = color
+        if let glassIconView = tf.leftView as? UIImageView, let img = glassIconView.image {
+            let newImg = img.blendedByColor(color.isLight ? .black : .white)
+            glassIconView.image = newImg
+        }
+        if let clearButton = tf.value(forKey: "clearButton") as? UIButton {
+            clearButton.setImage(clearButton.imageView?.image?.withRenderingMode(.alwaysTemplate), for: .normal)
+            clearButton.tintColor = color.isLight ? .black : .white
+        }
+    }
+}
+
+extension UIImage {
+    
+    public func blendedByColor(_ color: UIColor) -> UIImage {
+        let scale = UIScreen.main.scale
+        if scale > 1 {
+            UIGraphicsBeginImageContextWithOptions(size, false, scale)
+        } else {
+            UIGraphicsBeginImageContext(size)
+        }
+        color.setFill()
+        let bounds = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        UIRectFill(bounds)
+        draw(in: bounds, blendMode: .destinationIn, alpha: 1)
+        let blendedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return blendedImage!
     }
 }

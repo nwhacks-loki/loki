@@ -16,18 +16,19 @@ class FeedCell: UICollectionViewCell {
     
     let header = Header()
     
+    let contentTextView: UITextView = {
+        let textView = UITextView()
+        textView.isEditable = false
+        textView.isScrollEnabled = false
+        textView.font = UIFont.systemFont(ofSize: 15)
+        return textView
+    }()
+    
     let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
-    }()
-    
-    let contentTextView: UITextView = {
-        let textView = UITextView()
-        textView.isEditable = false
-        textView.font = UIFont.systemFont(ofSize: 15)
-        return textView
     }()
     
     let footer = Footer()
@@ -65,11 +66,11 @@ class FeedCell: UICollectionViewCell {
         
         header.anchor(topAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 50)
         
-        imageView.anchor(header.bottomAnchor, left: leftAnchor, bottom: contentTextView.topAnchor, right: rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
+        contentTextView.anchor(header.bottomAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, topConstant: 0, leftConstant: 16, bottomConstant: 0, rightConstant: 16, widthConstant: 0, heightConstant: 50)
         
-        contentTextView.anchor(imageView.bottomAnchor, left: leftAnchor, bottom: footer.topAnchor, right: rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
+        imageView.anchor(contentTextView.bottomAnchor, left: leftAnchor, bottom: footer.topAnchor, right: rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 16, rightConstant: 0, widthConstant: 0, heightConstant: 0)
         
-        footer.anchor(nil, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 30)
+        footer.anchor(nil, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 10, rightConstant: 0, widthConstant: 0, heightConstant: 30)
         
         separatorLine.anchor(nil, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, heightConstant: 0.5)
     }

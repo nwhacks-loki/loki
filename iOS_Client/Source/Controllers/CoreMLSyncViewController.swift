@@ -74,9 +74,6 @@ class CoreMLSyncViewController: UIViewController {
                 print("file does not exist, creating model")
                 try fileManager.copyItem(at: compiledUrl, to: permanentUrl)
             }
-            DispatchQueue.main.async {
-                Ping(text: "Successfully Updated CoreML Model", style: .info).show()
-            }
         } catch {
             DispatchQueue.main.async {
                 Ping(text: "Error during copy: \(error.localizedDescription)", style: .danger).show()
