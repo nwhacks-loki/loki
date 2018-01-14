@@ -39,9 +39,9 @@ def train_model_endpoint():
 
 @app.route('/model')
 def serve_model():
-    if not os.path.isfile('model.mlmodel'):
-        print("Training model to serve...")
-        train_model_endpoint()
+    # if not os.path.isfile('model.mlmodel'):
+    print("Training model to serve...")
+    train_model_endpoint()
 
     return send_file(
         filename_or_fp='model.mlmodel',
