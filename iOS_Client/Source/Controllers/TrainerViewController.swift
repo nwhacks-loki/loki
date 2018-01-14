@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  TrainerViewController.swift
 //  nwHacks2018
 //
 //  Created by Nathan Tannar on 1/13/18.
@@ -9,7 +9,7 @@
 import UIKit
 import ARKit
 
-class ViewController: UIViewController {
+class TrainerViewController: UIViewController {
     
     var faceTrackingConfig: ARFaceTrackingConfiguration {
         let configuration = ARFaceTrackingConfiguration()
@@ -33,6 +33,7 @@ class ViewController: UIViewController {
         let tableView = UITableView()
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.tableFooterView = UIView()
         return tableView
     }()
     
@@ -53,7 +54,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Emotion Tracker"
+        title = "CoreML Trainer"
         view.backgroundColor = .white
         tableView.frame = view.bounds
         view.addSubview(tableView)
@@ -69,7 +70,13 @@ class ViewController: UIViewController {
                                                             action: #selector(captureCurrentEmption))
     }
     
-    public override func viewDidAppear(_ animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        pauseCapture()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         resumeCapture()
@@ -81,9 +88,8 @@ class ViewController: UIViewController {
     func captureCurrentEmption() {
         
         playChime()
-        session.pause()
-        navigationItem.rightBarButtonItem?.isEnabled = false
-        navigationItem.leftBarButtonItem?.isEnabled = true
+        pauseCapture()
+        
         
         // Send data to backend here //
         
@@ -98,6 +104,13 @@ class ViewController: UIViewController {
         }
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(actionSheet, animated: false, completion: nil)
+    }
+    
+    func pauseCapture() {
+        
+        session.pause()
+        navigationItem.rightBarButtonItem?.isEnabled = false
+        navigationItem.leftBarButtonItem?.isEnabled = true
     }
     
     @objc
@@ -116,9 +129,9 @@ class ViewController: UIViewController {
 
 }
 
-extension ViewController: ARSCNViewDelegate {
+extension TrainerViewController: ARSCNViewDelegate {
     
-    public func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
         
         guard let faceAnchor = anchor as? ARFaceAnchor else { return }
         blendShapes = faceAnchor.blendShapes
@@ -128,7 +141,7 @@ extension ViewController: ARSCNViewDelegate {
     }
 }
 
-extension ViewController: UITableViewDataSource, UITableViewDelegate {
+extension TrainerViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return blendShapes.count
