@@ -1,3 +1,8 @@
 Flask==0.11.1
 psycopg2==2.7.3
 peewee==2.8.5
+tensorflow==1.2.1
+Keras==2.0.6
+numpy==1.14.0
+coremltools==0.7
+h5py==2.7.1

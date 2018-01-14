@@ -1,14 +1,15 @@
 # nwHacks2018
 
-Hack idea:
-Collect emotions when user is reading and utilizing the data collected.
+Hack idea: Identity the emotion of a user (in the background) while they're reading
+their "news feed", and adjust the content displayed to the user accordingly.
 
-- happy
-	- corners of mouth are raised
-- sad
-	- corners of mouth are dropped
-- anger
-	- inner corners of eyebrows are dropped
-- surprised
-	- eyebrows are raised
-	- mouth wide open
+## Usage
+
+Running the backend server:
+
+```bash
+$ export DATABASE_URL=<Postgres URL>
+$ cd data-backend
+$ pip install -r requirements.txt
+$ python app.py
+```

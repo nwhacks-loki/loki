@@ -25,76 +25,78 @@ class FaceRecord: Codable {
     
     var emotion: Emotion
     
-    var mouthUpperUp_R: Float
-    var mouthPress_L: Float
-    var mouthLowerDown_L: Float
-    var browDown_L: Float
-    var cheekPuff: Float
-    var mouthShrugLower: Float
-    var eyeLookUp_R: Float
-    var jawLeft: Float
-    var eyeBlink_L: Float
-    var eyeLookIn_L: Float
-    var eyeLookOut_R: Float
-    var mouthShrugUpper: Float
-    var mouthFrown_L: Float
-    var jawForward: Float
-    var eyeSquint_R: Float
-    var mouthStretch_L: Float
-    var eyeWide_L: Float
-    var jawRight: Float
-    var cheekSquint_R: Float
-    var jawOpen: Float
-    var noseSneer_R: Float
-    var browOuterUp_L: Float
-    var eyeWide_R: Float
-    var eyeLookDown_R: Float
-    var browOuterUp_R: Float
-    var mouthSmile_R: Float
-    var mouthPress_R: Float
-    var mouthClose: Float
-    var cheekSquint_L: Float
-    var eyeLookDown_L: Float
-    var mouthRight: Float
-    var mouthRollUpper: Float
-    var eyeSquint_L: Float
-    var mouthRollLower: Float
-    var mouthStretch_R: Float
-    var mouthDimple_L: Float
-    var mouthUpperUp_L: Float
-    var mouthPucker: Float
-    var noseSneer_L: Float
-    var browDown_R: Float
-    var browInnerUp: Float
-    var mouthLowerDown_R: Float
-    var eyeLookUp_L: Float
-    var eyeLookIn_R: Float
-    var mouthFunnel: Float
-    var mouthFrown_R: Float
-    var eyeLookOut_L: Float
-    var mouthLeft: Float
-    var mouthDimple_R: Float
-    var eyeBlink_R: Float
-    var mouthSmile_L: Float
+    var mouthUpperUp_R: Double
+    var mouthPress_L: Double
+    var mouthLowerDown_L: Double
+    var browDown_L: Double
+    var cheekPuff: Double
+    var mouthShrugLower: Double
+    var eyeLookUp_R: Double
+    var jawLeft: Double
+    var eyeBlink_L: Double
+    var eyeLookIn_L: Double
+    var eyeLookOut_R: Double
+    var mouthShrugUpper: Double
+    var mouthFrown_L: Double
+    var jawForward: Double
+    var eyeSquint_R: Double
+    var mouthStretch_L: Double
+    var eyeWide_L: Double
+    var jawRight: Double
+    var cheekSquint_R: Double
+    var jawOpen: Double
+    var noseSneer_R: Double
+    var browOuterUp_L: Double
+    var eyeWide_R: Double
+    var eyeLookDown_R: Double
+    var browOuterUp_R: Double
+    var mouthSmile_R: Double
+    var mouthPress_R: Double
+    var mouthClose: Double
+    var cheekSquint_L: Double
+    var eyeLookDown_L: Double
+    var mouthRight: Double
+    var mouthRollUpper: Double
+    var eyeSquint_L: Double
+    var mouthRollLower: Double
+    var mouthStretch_R: Double
+    var mouthDimple_L: Double
+    var mouthUpperUp_L: Double
+    var mouthPucker: Double
+    var noseSneer_L: Double
+    var browDown_R: Double
+    var browInnerUp: Double
+    var mouthLowerDown_R: Double
+    var eyeLookUp_L: Double
+    var eyeLookIn_R: Double
+    var mouthFunnel: Double
+    var mouthFrown_R: Double
+    var eyeLookOut_L: Double
+    var mouthLeft: Double
+    var mouthDimple_R: Double
+    var eyeBlink_R: Double
+    var mouthSmile_L: Double
     
-    class func create(for emotion: Emotion, anchors: [ARFaceAnchor.BlendShapeLocation : NSNumber]) -> FaceRecord {
+    class func create(for emotion: Emotion, anchors: [ARFaceAnchor.BlendShapeLocation : NSNumber]) -> FaceRecord? {
         
         var json = [String:Any]()
         anchors.forEach { (arg) in
             let (key, value) = arg
-            json[key.rawValue] = value.floatValue
+            json[key.rawValue] = value.doubleValue
         }
         json["emotion"] = emotion.rawValue
         
-        let data = try! JSONSerialization.data(withJSONObject: json, options: .sortedKeys)
+        guard let data = try? JSONSerialization.data(withJSONObject: json, options: .sortedKeys) else {
+            return nil
+        }
         let decoder = JSONDecoder()
-        let record = try! decoder.decode(FaceRecord.self, from: data)
+        let record = try? decoder.decode(FaceRecord.self, from: data)
         return record
     }
     
     func saveInBackground() {
         
-        let endpoint = "http://54.218.118.144:5001/post-emotion"
+        let endpoint = "http://nwhacks-2018.kevinyap.ca:5001/post-emotion"
         guard let data = try? JSONEncoder().encode(self), let url = URL(string: endpoint) else {
             print("something went wrong")
             return
@@ -110,14 +112,8 @@ class FaceRecord: Codable {
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 // there was an error
-                print(error.localizedDescription)
-            } else {
-                if let data = data {
-                    guard let value = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) else { return }
-                    print(value)
-                }
-                
-            }
+                Ping(text: error.localizedDescription, style: .danger).show()
+            } 
         }.resume()
     }
     

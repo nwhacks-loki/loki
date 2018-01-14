@@ -1,9 +1,5 @@
 import sys
-import json
-import random
 
-import peewee
-import psycopg2
 import coremltools
 import numpy as np
 from keras.models import Sequential
@@ -113,7 +109,7 @@ def train_model(output_mlmodel=False):
     model = computation.feedForwardNetwork(51,40, 30,4)
 
     # Train the model with the preprocessed data
-    trainingResult = model.fit(X, y, batch_size=10, epochs=100)
+    hist = model.fit(X, y, batch_size=10, epochs=100)
 
     # Save the trained model
     model.save("model.h5")
@@ -128,6 +124,9 @@ def train_model(output_mlmodel=False):
         iphone_model = coremltools.converters.keras.convert("./model.h5")
         iphone_model.save('model.mlmodel')
         print("Saved CoreML model to `model.mlmodel`.")
+
+    # Return dictionary with history of accuracy and loss
+    return hist.history
 
 
 if __name__ == '__main__':
