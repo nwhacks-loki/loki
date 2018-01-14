@@ -53,7 +53,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title "Emotion Tracker"
+        title = "Emotion Tracker"
         view.backgroundColor = .white
         tableView.frame = view.bounds
         view.addSubview(tableView)
@@ -84,6 +84,8 @@ class ViewController: UIViewController {
         session.pause()
         navigationItem.rightBarButtonItem?.isEnabled = false
         navigationItem.leftBarButtonItem?.isEnabled = true
+        
+        // Send data to backend here //
     }
     
     @objc
