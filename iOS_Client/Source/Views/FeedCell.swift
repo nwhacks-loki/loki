@@ -14,14 +14,30 @@ class FeedCell: UICollectionViewCell {
         return "FeedCell"
     }
     
-    var imageView = UIImageView()
+    let imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setupViews()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageView.image = nil
+    }
+    
+    func setupViews() {
+        
+        addSubview(imageView)
+        imageView.fillSuperview()
     }
     
 }
