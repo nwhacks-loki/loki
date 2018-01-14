@@ -1,6 +1,6 @@
 # nwHacks2018
 
-Hack idea: Identity the emotion of a user (in the background) while they're reading
+Loki: Identity the emotion of a user (in the background) while they're reading
 their "news feed", and adjust the content displayed to the user accordingly.
 
 ## Usage
