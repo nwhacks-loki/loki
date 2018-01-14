@@ -30,8 +30,6 @@
 		3842474D200B448C00BE2AEF /* UIDevice+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3842474B200B448C00BE2AEF /* UIDevice+Extensions.swift */; };
 		3842474F200B44A100BE2AEF /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3842474E200B44A100BE2AEF /* UIView+AutoLayout.swift */; };
 		38424751200B46A600BE2AEF /* CoreMLSyncViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38424750200B46A600BE2AEF /* CoreMLSyncViewController.swift */; };
-		38424753200B47D800BE2AEF /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38424752200B47D800BE2AEF /* Tools.swift */; };
-		38424757200B487E00BE2AEF /* NSFileManager+Tar.m in Sources */ = {isa = PBXBuildFile; fileRef = 38424756200B487E00BE2AEF /* NSFileManager+Tar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,10 +58,6 @@
 		3842474B200B448C00BE2AEF /* UIDevice+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extensions.swift"; sourceTree = "<group>"; };
 		3842474E200B44A100BE2AEF /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
 		38424750200B46A600BE2AEF /* CoreMLSyncViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMLSyncViewController.swift; sourceTree = "<group>"; };
-		38424752200B47D800BE2AEF /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
-		38424754200B487D00BE2AEF /* nwHacks2018-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "nwHacks2018-Bridging-Header.h"; sourceTree = "<group>"; };
-		38424755200B487E00BE2AEF /* NSFileManager+Tar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+Tar.h"; sourceTree = "<group>"; };
-		38424756200B487E00BE2AEF /* NSFileManager+Tar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+Tar.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +118,6 @@
 			children = (
 				38424728200AD80800BE2AEF /* FaceRecord.swift */,
 				38424726200AC6A100BE2AEF /* Emotion.swift */,
-				38424752200B47D800BE2AEF /* Tools.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -152,9 +145,6 @@
 			isa = PBXGroup;
 			children = (
 				3842474E200B44A100BE2AEF /* UIView+AutoLayout.swift */,
-				38424755200B487E00BE2AEF /* NSFileManager+Tar.h */,
-				38424756200B487E00BE2AEF /* NSFileManager+Tar.m */,
-				38424754200B487D00BE2AEF /* nwHacks2018-Bridging-Header.h */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -261,10 +251,8 @@
 				38424747200B447100BE2AEF /* Toast.swift in Sources */,
 				04EE6F2C200B3A6400AF1206 /* PictureFeedViewController.swift in Sources */,
 				38424746200B447100BE2AEF /* Ping.swift in Sources */,
-				38424757200B487E00BE2AEF /* NSFileManager+Tar.m in Sources */,
 				38424713200AC50B00BE2AEF /* AppDelegate.swift in Sources */,
 				3842473E200B365800BE2AEF /* EmotionModel.mlmodel in Sources */,
-				38424753200B47D800BE2AEF /* Tools.swift in Sources */,
 				38424748200B447100BE2AEF /* DownloadLine.swift in Sources */,
 				38424733200B22B300BE2AEF /* NSConstraintLayoutSet.swift in Sources */,
 				38424745200B447100BE2AEF /* DownloadWheel.swift in Sources */,
@@ -416,7 +404,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "me.nathantannar.nwHacks2018-emotion";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Source/Extensions/nwHacks2018-Bridging-Header.h";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -436,7 +425,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "me.nathantannar.nwHacks2018-emotion";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Source/Extensions/nwHacks2018-Bridging-Header.h";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

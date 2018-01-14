@@ -247,9 +247,9 @@ extension DownloadWheel: URLSessionDownloadDelegate {
     
     open func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
         
+        completion?(self, location, nil)
         DispatchQueue.main.async {
             self.statusLabel.text = "Complete"
-            self.completion?(self, location, nil)
             if self.dismissOnCompletion {
                 self.dismiss()
             }

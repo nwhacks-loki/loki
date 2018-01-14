@@ -12,7 +12,21 @@ import CoreML
 
 class EmotionReaderViewController: UIViewController {
     
-    var emotionModel = EmotionModel()
+    var emotionModel: EmotionModel = {
+        // Look for sync'd model
+        guard let appSupportDirectory = try? FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: false) else {
+            // Fallback
+            print("falling back on local model")
+            return EmotionModel()
+        }
+        let expectedURL = appSupportDirectory.appendingPathComponent("EmotionModel.mlmodel")
+        guard let model = try? EmotionModel(contentsOf: expectedURL) else {
+            // Fallback
+            print("falling back on local model")
+            return EmotionModel()
+        }
+        return model
+    }()
     
     var currentEmotion: Emotion = .unknown
     
@@ -23,7 +37,7 @@ class EmotionReaderViewController: UIViewController {
         .sad:0,
         .angry:0,
         .surprised:0
-        ]
+    ]
     
     var faceTrackingConfig: ARFaceTrackingConfiguration {
         let configuration = ARFaceTrackingConfiguration()

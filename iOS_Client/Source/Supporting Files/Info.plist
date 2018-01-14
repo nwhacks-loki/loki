@@ -20,7 +20,6 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-<<<<<<< Updated upstream
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSExceptionDomains</key>
@@ -34,10 +33,6 @@
 			</dict>
 		</dict>
 	</dict>
-	<key>NSCameraUsageDescription</key>
-	<string>Track your face! (just kidding...maybe)</string>
-=======
->>>>>>> Stashed changes
 	<key>NSCameraUsageDescription</key>
 	<string>Track your face! (just kidding...maybe)</string>
 	<key>UILaunchStoryboardName</key>
