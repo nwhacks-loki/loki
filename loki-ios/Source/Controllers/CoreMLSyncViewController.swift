@@ -33,7 +33,7 @@ class CoreMLSyncViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let url = URL(string: "http://nwhacks-2018.kevinyap.ca:5001/model")!
+        let url = URL(string: "http://nw-loki.tech:5001/model")!
         downloadWheel = DownloadWheel().downloadFile(from: url) { [weak self] (wheel, url, error) in
             guard let url = url else {
                 Ping(text: error?.localizedDescription ?? "Error", style: .danger).show()

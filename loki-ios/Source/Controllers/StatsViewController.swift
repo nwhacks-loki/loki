@@ -72,7 +72,7 @@ class StatsViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let endpoint = "http://nwhacks-2018.kevinyap.ca:5001/data"
+        let endpoint = "http://nw-loki.tech:5001/data"
         let url = URL(string: endpoint)!
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "GET"
