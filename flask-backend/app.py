@@ -10,14 +10,14 @@ app = Flask(__name__)
 
 
 @app.before_request
-def before_request():
+def _db_open():
     db.connect()
 
 
-@app.after_request
-def after_request(response):
-    db.close()
-    return response
+@app.teardown_request
+def _db_close(exc):
+    if not db.is_closed():
+        db.close()
 
 
 @app.route('/', methods=['GET'])
