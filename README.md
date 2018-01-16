@@ -9,14 +9,12 @@ content that gets loaded into the news feed.
 We were inspired to build Loki to illustrate the plausibility of social media
 platforms tracking user emotions to manipulate the content that gets shown to them.
 
-## Screenshots
+## Demo and Screenshots
+
+[Watch the demo here](https://www.youtube.com/watch?v=yc8onq_Diak)!
 
 ![Screenshots](images/loki-screenshots.png?raw=true "Screenshots")
 
-
-## Demo
-
-[Watch the video](https://www.youtube.com/embed/yc8onq_Diak)
 
 ## Usage
 
