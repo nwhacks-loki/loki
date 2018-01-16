@@ -52,7 +52,10 @@ class CoreMLSyncViewController: UIViewController {
     
     func replaceEmotionModel(at url: URL) {
         
-        let compiledUrl = try! MLModel.compileModel(at: url)
+        guard let compiledUrl = try? MLModel.compileModel(at: url) else {
+            print("invalid model file found at URL")
+            return
+        }
         //        let model = try! EmotionModel(contentsOf: compiledUrl)
         
         // find the app support directory
