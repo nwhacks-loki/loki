@@ -9,6 +9,8 @@ content that gets loaded into the news feed.
 We were inspired to build Loki to illustrate the plausibility of social media
 platforms tracking user emotions to manipulate the content that gets shown to them.
 
+Loki was a 24-hour hackathon project created during [nwHacks 2018](https://devpost.com/software/loki-fnbl1d).
+
 ## Demo and Screenshots
 
 [Watch the demo here](https://www.youtube.com/watch?v=yc8onq_Diak)!
