@@ -5,7 +5,7 @@ from playhouse.db_url import connect
 from peewee import Model, PrimaryKeyField, DateTimeField
 from playhouse.postgres_ext import BinaryJSONField
 
-db = connect(os.environ.get('DATABASE_URL'))
+db = connect(os.environ.get('DATABASE_URL') or 'postgresql:///loki')
 
 
 class Emotion(Model):

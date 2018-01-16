@@ -20,10 +20,12 @@ platforms tracking user emotions to manipulate the content that gets shown to th
 
 ## Usage
 
-Running the backend server:
+Running the backend server requires Python 2 and Postgres 9.4+. The backend
+expects a local Postgres database called `loki`; otherwise, the URL to a
+remote database instance must be provided via an environment variable.
 
 ```bash
-$ export DATABASE_URL=<Postgres URL>
+$ export DATABASE_URL="postgresql://user:pass@host:port/dbname"
 $ cd flask-backend
 $ pip install -r requirements.txt
 $ python app.py
