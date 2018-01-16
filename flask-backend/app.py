@@ -9,6 +9,17 @@ from models import Emotion, db
 app = Flask(__name__)
 
 
+@app.before_request
+def before_request():
+    db.connect()
+
+
+@app.after_request
+def after_request(response):
+    db.close()
+    return response
+
+
 @app.route('/', methods=['GET'])
 def index():
     return "Hello, world!"
@@ -59,6 +70,7 @@ def get_data():
 if __name__ == '__main__':
     db.connect()
     Emotion.create_table(fail_silently=True)
+    db.close()
 
     port = int(os.environ.get('PORT', 5001))
     app.run(host='0.0.0.0', port=port)
