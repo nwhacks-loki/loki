@@ -14,9 +14,11 @@ Loki was a hackathon project created by [Lansi Chu](https://github.com/lansichu)
 and [Patrick Huber](https://github.com/huberpa) during
 [nwHacks 2018](https://devpost.com/software/loki-fnbl1d).
 
-## Demo and Screenshots
+## Demos and Screenshots
 
-[Watch the demo here](https://www.youtube.com/watch?v=yc8onq_Diak)!
+[![Loki_Split_Screen_Demo](http://img.youtube.com/vi/GgZp8anVGvg/0.jpg)](http://www.youtube.com/watch?v=GgZp8anVGvg "Loki Split Screen Demo")
+
+[![Loki_Presentation_Demo](http://img.youtube.com/vi/yc8onq_Diak/0.jpg)](http://www.youtube.com/watch?v=yc8onq_Diak "Loki Presentation Demo")
 
 ![Screenshots](images/loki-screenshots.png?raw=true "Screenshots")
 
